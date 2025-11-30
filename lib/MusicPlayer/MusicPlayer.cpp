@@ -1297,20 +1297,9 @@ void setup() {
     ch0set_freq(melody_ch0[0]);
     ch1set_freq(melody_ch1[0]);
     ch2set_freq(melody_ch2[0]);
-
-    // Debug: Print track sizes
-    Serial.println("Track sizes - ch0:");
-    Serial.println(ch0size);
-    Serial.println(" ch1:");
-    Serial.println(ch1size);
-    Serial.println(" ch2:");
-    Serial.println(ch2size);
-
-    DDRE &= ~(1 << PINE5); // Set PINE5 as input for debugging
 }
 
 float stress_scaler = 1.0;
-static unsigned long last_debug_print = 0;
 void update(bool player_dry, uint8_t stress_level) {
     // Use fixed tempo for now - stress scaling can be added back later if needed
     // stress_scaler = 0.5 + (stress_level+1)/256.0;
@@ -1335,7 +1324,6 @@ void update(bool player_dry, uint8_t stress_level) {
             flags.ch2wrap = 0;
         }
         else{
-            Serial.println("Aha! Wrap bug mitigated!");
             flags.ch0wrap = 0;
             flags.ch1wrap = 0;
             flags.ch2wrap = 0;
@@ -1348,23 +1336,6 @@ void update(bool player_dry, uint8_t stress_level) {
             last_ch0update_millis = millis();
             last_ch1update_millis = millis();
             last_ch2update_millis = millis();
-        }
-        
-        // Debug output every 3 seconds
-        if(millis() - last_debug_print > 3000) {
-            Serial.print("Indices: ch0=");
-            Serial.print(ch0index);
-            Serial.print("/");
-            Serial.print(ch0size);
-            Serial.print(" ch1=");
-            Serial.print(ch1index);
-            Serial.print("/");
-            Serial.print(ch1size);
-            Serial.print(" ch2=");
-            Serial.print(ch2index);
-            Serial.print("/");
-            Serial.println(ch2size);
-            last_debug_print = millis();
         }
         
     }
