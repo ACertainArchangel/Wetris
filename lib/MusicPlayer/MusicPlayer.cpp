@@ -1,9 +1,10 @@
 #include "MusicPlayer.h"
 #include <Arduino.h>
+#define CLOCK_FREQ 16000000
+#define MUSIC_PRESCALER 8 // Hard coded into the prescaler setting code, this is for referance elsewhere in code and not for dynamic prescaler setting.
 namespace MusicPlayer{
 
-
-// Track 1, Channel 0
+// Track 1, Channel 0, Timer 1
 float melody_ch0[] = {
   NOTE_E5,
   NOTE_B4,
@@ -370,8 +371,48 @@ int noteDurations_ch0[] = {
   429,
   429
 };
+int ch0index = 0;
+int ch0size = sizeof(noteDurations_ch0);
+int last_ch0update_millis = 0;
+void ch0set_freq(int freq){
+    OCR1A = CLOCK_FREQ/(freq*MUSIC_PRESCALER*2)-1;
+}
+void ch0advance(){
+    ch0set_freq(melody_ch0[ch0index]);
+    last_ch0update_millis = millis();
+    ch0index++;
+    if(ch0index>=ch0size){
+        ch0index=0;
+    }
+}
 
-// Track 2, Channel 1
+byte ch0sad = 0;
+int ch0sadnotes[] = {
+    NOTE_AS3,  // Bb3 - "wah"
+    NOTE_A3,   // A3  - "wah"
+    NOTE_GS3,  // Ab3 - "wah"
+    NOTE_G3,   // G3  - "waaah"
+};
+int ch0sad_durations[] = {
+    500,  // Half second
+    500,  // Half second
+    500,  // Half second
+    1000, // Longer last note
+};
+void ch0makesad(){
+    ch0sad = 1;
+    ch0index = 0;
+}
+void ch0sadvance(){
+    ch0set_freq(ch0sadnotes[ch0index]);
+    last_ch0update_millis = millis();
+    ch0index++;
+    if(ch0index>=ch0size){
+        ch0index=0;
+    }
+}
+
+// Track 2, Channel 1, Timer 3
 float melody_ch1[] = {
   NOTE_B4,
   NOTE_GS4,
@@ -802,8 +843,48 @@ int noteDurations_ch1[] = {
   429,
   429
 };
+int ch1index = 1;
+int ch1size = sizeof(noteDurations_ch1);
+int last_ch1update_millis = 0;
+void ch1set_freq(int freq){
+    OCR3A = CLOCK_FREQ/(freq*MUSIC_PRESCALER*2)-1;
+}
+void ch1advance(){
+    ch1set_freq(melody_ch1[ch1index]);
+    last_ch1update_millis = millis();
+    ch1index++;
+    if(ch1index>=ch1size){
+        ch1index=0;
+    }
+}
 
-// Track 3, Channel 2
+byte ch1sad = 0;
+int ch1sadnotes[] = {
+    NOTE_F3,   // F3  - "wah" (harmony)
+    NOTE_E3,   // E3  - "wah"
+    NOTE_DS3,  // Eb3 - "wah"
+    NOTE_D3,   // D3  - "waaah"
+};
+int ch1sad_durations[] = {
+    500,  // Half second
+    500,  // Half second
+    500,  // Half second
+    1000, // Longer last note
+};
+void ch1makesad(){
+    ch1sad = 1;
+    ch1index = 0;
+}
+void ch1sadvance(){
+    ch1set_freq(ch1sadnotes[ch1index]);
+    last_ch1update_millis = millis();
+    ch1index++;
+    if(ch1index>=ch1size){
+        ch1index=0;
+    }
+}
+
+// Track 3, Channel 2, Timer 4
 float melody_ch2[] = {
   NOTE_E1,
   NOTE_E2,
@@ -1418,15 +1499,142 @@ int noteDurations_ch2[] = {
   214,
   429
 };
-
-
-void setup(float speed) {
-    // initialize pins, etc.
+int ch2index = 1;
+int ch2size = sizeof(noteDurations_ch2);
+int last_ch2update_millis = 0;
+void ch2set_freq(int freq){
+    OCR4A = CLOCK_FREQ/(freq*MUSIC_PRESCALER*2)-1;
+}
+void ch2advance(){
+    ch1set_freq(melody_ch2[ch2index]);
+    last_ch2update_millis = millis();
+    ch2index++;
+    if(ch2index>=ch2size){
+        ch2index=0;
+    }
 }
 
-void update(bool player_dry) {
-    // non-blocking logic
+byte ch2sad = 0;
+int ch2sadnotes[] = {
+    NOTE_AS2,  // Bb2 - "wah" (bass)
+    NOTE_A2,   // A2  - "wah"
+    NOTE_GS2,  // Ab2 - "wah"
+    NOTE_G2,   // G2  - "waaah"
+};
+int ch2sad_durations[] = {
+    500,  // Half second
+    500,  // Half second
+    500,  // Half second
+    1000, // Longer last note
+};
+void ch2makesad(){
+    ch2sad = 1;
+    ch2index = 0;
+}
+void ch2sadvance(){
+    ch2set_freq(ch2sadnotes[ch2index]);
+    last_ch2update_millis = millis();
+    ch2index++;
+    if(ch2index>=ch2size){
+        ch2index=0;
+    }
+}
+
+void setup() {
+    /*CHANNEL 1 SETUP ON TIMER 1*/
+    //WGM 2:0 To 010 so it's CTC mode (clear timer on compare)
+    TCCR1A |= 0b00000010;
+    TCCR1A &= 0b11111010;
+    
+    // Make sure we toggle 0C1A on match
+    TCCR1A |= 0b01000000;
+    TCCR1A &= 0b01111111;
+
+    // OC0A data direction out (cus OC1A is B5)
+    DDRB |= 1<<5;
+
+    // Prescale 8 for base notes
+    TCCR1B |= 0b00000010;
+    TCCR1B &= 0b00000101;
+
+
+    /*CHANNEL 2 SETUP ON TIMER 3*/
+    //WGM 2:0 To 010 so it's CTC mode (clear timer on compare)
+    TCCR3A |= 0b00000010;
+    TCCR3A &= 0b11111010;
+    
+    // Make sure we toggle 0C3A on match
+    TCCR3A |= 0b01000000;
+    TCCR3A &= 0b01111111;
+
+    // OC0A data direction out (cus OC2A is B4)
+    DDRB |= 1<<4;
+
+    // Prescale 8 for base notes
+    TCCR3B |= 0b00000010;
+    TCCR3B &= 0b00000101;
+
+
+
+    /*CHANNEL 3 SETUP ON TIMER 4*/
+    //WGM 2:0 To 010 so it's CTC mode (clear timer on compare)
+    TCCR4A |= 0b00000010;
+    TCCR4A &= 0b11111010;
+    
+    // Make sure we toggle 0C4A on match
+    TCCR4A |= 0b01000000;
+    TCCR4A &= 0b01111111;
+
+    // OC0A data direction out (cus OC4A is H3)
+    DDRH |= 1<<3;
+
+    // Prescale 8 for base notes
+    TCCR4B |= 0b00000010;
+    TCCR4B &= 0b00000101;
+
+
+}
+
+int index0, index1, index2;
+uint16_t stress_scaler;
+void update(bool player_dry, uint16_t stress_level) {
+
+    if(player_dry){
+        stress_scaler = 0.5 + stress_level/255;
+        if(ch0index-1==-1){
+            index0 = ch0size - 1;
+        }
+        else{
+            index0 = ch0index - 1;
+        }
+        if(ch1index-1==-1){
+            index1 = ch1size - 1;
+        }
+        else{
+            index1 = ch1index - 1;
+        }
+        if(ch2index-1==-1){
+            index2 = ch2size - 1;
+        }
+        else{
+            index2 = ch2index - 1;
+        }
+
+        if(millis()-last_ch0update_millis>=noteDurations_ch0[index0]/stress_scaler){
+            ch0advance();
+        }
+        if(millis()-last_ch1update_millis>=noteDurations_ch1[index1]/stress_scaler){
+            ch0advance();
+        }
+        if(millis()-last_ch2update_millis>=noteDurations_ch2[index2]/stress_scaler){
+            ch0advance();
+        }
+    }
+    else{
+
+    }
 }
 
 
 }
+
