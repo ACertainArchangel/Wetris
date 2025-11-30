@@ -115,5 +115,5 @@
 
 namespace MusicPlayer{
     void setup();
-    void update(bool player_dry, uint16_t stress_level);
+    void update(bool player_dry, uint8_t stress_level);
 }

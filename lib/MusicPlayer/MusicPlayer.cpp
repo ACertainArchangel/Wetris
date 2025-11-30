@@ -373,21 +373,26 @@ int noteDurations_ch0[] = {
 };
 int ch0index = 0;
 int ch0size = sizeof(noteDurations_ch0) / sizeof(noteDurations_ch0[0]);
-int last_ch0update_millis = 0;
-void ch0set_freq(int freq){
+uint32_t last_ch0update_millis = 0;
+void ch0set_freq(float freq){
     if(freq > 0) {  // Handle REST
-        OCR1A = CLOCK_FREQ/(freq*MUSIC_PRESCALER*2)-1;
+        OCR1A = (uint16_t)(CLOCK_FREQ/(freq*MUSIC_PRESCALER*2.0)-1);
     } else {
         OCR1A = 0; // No sound for REST
     }
 }
 void ch0advance(){
-    ch0set_freq(melody_ch0[ch0index]);
-    last_ch0update_millis = millis();
     ch0index++;
     if(ch0index>=ch0size){
         ch0index=0;
     }
+    // Defensive: double-check bounds
+    if(ch0index >= ch0size) {
+        Serial.println("ERROR: ch0index out of bounds!");
+        ch0index = 0;
+    }
+    ch0set_freq(melody_ch0[ch0index]);
+    last_ch0update_millis = millis();
 }
 
 byte ch0sad = 0;
@@ -850,22 +855,27 @@ int noteDurations_ch1[] = {
 };
 int ch1index = 0;
 int ch1size = sizeof(noteDurations_ch1) / sizeof(noteDurations_ch1[0]);
-int last_ch1update_millis = 0;
-void ch1set_freq(int freq){
+uint32_t last_ch1update_millis = 0;
+void ch1set_freq(float freq){
     if(freq > 0) {  // Handle REST
-        OCR3A = CLOCK_FREQ/(freq*MUSIC_PRESCALER*2)-1;
+        OCR3A = (uint16_t)(CLOCK_FREQ/(freq*MUSIC_PRESCALER*2.0)-1);
     }
     else if(freq==0){
         OCR3A = 0; // No sound for REST
     }
 }
 void ch1advance(){
-    ch1set_freq(melody_ch1[ch1index]);
-    last_ch1update_millis = millis();
     ch1index++;
     if(ch1index>=ch1size){
         ch1index=0;
     }
+    // Defensive: double-check bounds
+    if(ch1index >= ch1size) {
+        Serial.println("ERROR: ch1index out of bounds!");
+        ch1index = 0;
+    }
+    ch1set_freq(melody_ch1[ch1index]);
+    last_ch1update_millis = millis();
 }
 
 byte ch1sad = 0;
@@ -896,311 +906,311 @@ void ch1sadvance(){
 
 // Track 3, Channel 2, Timer 4
 float melody_ch2[] = {
-  NOTE_E1,
   NOTE_E2,
-  NOTE_E1,
+  NOTE_E3,
   NOTE_E2,
-  NOTE_E1,
+  NOTE_E3,
   NOTE_E2,
-  NOTE_E1,
+  NOTE_E3,
   NOTE_E2,
-  NOTE_A1,
+  NOTE_E3,
   NOTE_A2,
-  NOTE_A1,
+  NOTE_A3,
   NOTE_A2,
-  NOTE_A1,
+  NOTE_A3,
   NOTE_A2,
-  NOTE_A1,
+  NOTE_A3,
   NOTE_A2,
-  NOTE_GS1,
+  NOTE_A3,
   NOTE_GS2,
-  NOTE_GS1,
+  NOTE_GS3,
   NOTE_GS2,
-  NOTE_E1,
+  NOTE_GS3,
   NOTE_E2,
-  NOTE_E1,
+  NOTE_E3,
   NOTE_E2,
-  NOTE_A1,
+  NOTE_E3,
   NOTE_A2,
-  NOTE_A1,
+  NOTE_A3,
   NOTE_A2,
-  NOTE_A1,
+  NOTE_A3,
   NOTE_A2,
-  NOTE_B1,
-  NOTE_C2,
+  NOTE_A3,
+  NOTE_B2,
+  NOTE_C3,
+  NOTE_D3,
   NOTE_D2,
-  NOTE_D1,
   REST,
-  NOTE_D1,
-  REST,
-  NOTE_D1,
-  NOTE_A1,
-  NOTE_F1,
-  NOTE_C1,
-  NOTE_C2,
-  REST,
-  NOTE_C2,
-  NOTE_C1,
-  NOTE_G1,
-  NOTE_G1,
-  REST,
-  NOTE_B1,
-  NOTE_B2,
-  REST,
-  NOTE_B2,
-  REST,
-  NOTE_E2,
-  REST,
-  NOTE_GS2,
-  NOTE_A1,
-  NOTE_E2,
-  NOTE_A1,
-  NOTE_E2,
-  NOTE_A1,
-  REST,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_GS1,
-  NOTE_GS2,
-  NOTE_GS1,
-  NOTE_GS2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_B1,
-  NOTE_C2,
   NOTE_D2,
-  NOTE_D1,
   REST,
-  NOTE_D1,
-  REST,
-  NOTE_D1,
-  NOTE_A1,
-  NOTE_F1,
-  NOTE_C1,
-  NOTE_C2,
-  REST,
-  NOTE_C2,
-  NOTE_C1,
-  NOTE_G1,
-  NOTE_G1,
-  REST,
-  NOTE_B1,
-  NOTE_B2,
-  REST,
-  NOTE_B2,
-  REST,
-  NOTE_E2,
-  REST,
-  NOTE_GS2,
-  NOTE_A1,
-  NOTE_E2,
-  NOTE_A1,
-  NOTE_E2,
-  NOTE_A1,
-  REST,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_GS2,
-  NOTE_E3,
-  NOTE_GS2,
-  NOTE_E3,
-  NOTE_GS2,
-  NOTE_E3,
-  NOTE_GS2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_GS2,
-  NOTE_E3,
-  NOTE_GS2,
-  NOTE_E3,
-  REST,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_GS2,
-  NOTE_E3,
-  NOTE_GS2,
-  NOTE_E3,
-  NOTE_GS2,
-  NOTE_E3,
-  NOTE_GS2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_A2,
-  NOTE_E3,
-  NOTE_GS2,
-  NOTE_E3,
-  NOTE_GS2,
-  NOTE_E3,
-  REST,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_GS1,
-  NOTE_GS2,
-  NOTE_GS1,
-  NOTE_GS2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_B1,
-  NOTE_C2,
   NOTE_D2,
-  NOTE_D1,
-  REST,
-  NOTE_D1,
-  REST,
-  NOTE_D1,
-  NOTE_A1,
-  NOTE_F1,
-  NOTE_C1,
+  NOTE_A2,
+  NOTE_F2,
   NOTE_C2,
+  NOTE_C3,
   REST,
+  NOTE_C3,
   NOTE_C2,
-  NOTE_C1,
-  NOTE_G1,
-  NOTE_G1,
-  REST,
-  NOTE_B1,
-  NOTE_B2,
+  NOTE_G2,
+  NOTE_G2,
   REST,
   NOTE_B2,
+  NOTE_B3,
+  REST,
+  NOTE_B3,
+  REST,
+  NOTE_E3,
+  REST,
+  NOTE_GS3,
+  NOTE_A2,
+  NOTE_E3,
+  NOTE_A2,
+  NOTE_E3,
+  NOTE_A2,
   REST,
   NOTE_E2,
-  REST,
+  NOTE_E3,
+  NOTE_E2,
+  NOTE_E3,
+  NOTE_E2,
+  NOTE_E3,
+  NOTE_E2,
+  NOTE_E3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
   NOTE_GS2,
-  NOTE_A1,
-  NOTE_E2,
-  NOTE_A1,
-  NOTE_E2,
-  NOTE_A1,
-  REST,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_E1,
-  NOTE_E2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_A1,
-  NOTE_A2,
-  NOTE_GS1,
+  NOTE_GS3,
   NOTE_GS2,
-  NOTE_GS1,
-  NOTE_GS2,
-  NOTE_E1,
+  NOTE_GS3,
   NOTE_E2,
-  NOTE_E1,
+  NOTE_E3,
   NOTE_E2,
-  NOTE_A1,
+  NOTE_E3,
   NOTE_A2,
-  NOTE_A1,
+  NOTE_A3,
   NOTE_A2,
-  NOTE_A1,
+  NOTE_A3,
   NOTE_A2,
-  NOTE_B1,
-  NOTE_C2,
+  NOTE_A3,
+  NOTE_B2,
+  NOTE_C3,
+  NOTE_D3,
   NOTE_D2,
-  NOTE_D1,
   REST,
-  NOTE_D1,
+  NOTE_D2,
   REST,
-  NOTE_D1,
-  NOTE_A1,
-  NOTE_F1,
-  NOTE_C1,
+  NOTE_D2,
+  NOTE_A2,
+  NOTE_F2,
   NOTE_C2,
+  NOTE_C3,
   REST,
+  NOTE_C3,
   NOTE_C2,
-  NOTE_C1,
-  NOTE_G1,
-  NOTE_G1,
-  REST,
-  NOTE_B1,
-  NOTE_B2,
+  NOTE_G2,
+  NOTE_G2,
   REST,
   NOTE_B2,
+  NOTE_B3,
+  REST,
+  NOTE_B3,
+  REST,
+  NOTE_E3,
+  REST,
+  NOTE_GS3,
+  NOTE_A2,
+  NOTE_E3,
+  NOTE_A2,
+  NOTE_E3,
+  NOTE_A2,
+  REST,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_GS3,
+  NOTE_E4,
+  NOTE_GS3,
+  NOTE_E4,
+  NOTE_GS3,
+  NOTE_E4,
+  NOTE_GS3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_GS3,
+  NOTE_E4,
+  NOTE_GS3,
+  NOTE_E4,
+  REST,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_GS3,
+  NOTE_E4,
+  NOTE_GS3,
+  NOTE_E4,
+  NOTE_GS3,
+  NOTE_E4,
+  NOTE_GS3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_A3,
+  NOTE_E4,
+  NOTE_GS3,
+  NOTE_E4,
+  NOTE_GS3,
+  NOTE_E4,
   REST,
   NOTE_E2,
-  REST,
+  NOTE_E3,
+  NOTE_E2,
+  NOTE_E3,
+  NOTE_E2,
+  NOTE_E3,
+  NOTE_E2,
+  NOTE_E3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
   NOTE_GS2,
-  NOTE_A1,
+  NOTE_GS3,
+  NOTE_GS2,
+  NOTE_GS3,
   NOTE_E2,
-  NOTE_A1,
+  NOTE_E3,
   NOTE_E2,
-  NOTE_A1
+  NOTE_E3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_B2,
+  NOTE_C3,
+  NOTE_D3,
+  NOTE_D2,
+  REST,
+  NOTE_D2,
+  REST,
+  NOTE_D2,
+  NOTE_A2,
+  NOTE_F2,
+  NOTE_C2,
+  NOTE_C3,
+  REST,
+  NOTE_C3,
+  NOTE_C2,
+  NOTE_G2,
+  NOTE_G2,
+  REST,
+  NOTE_B2,
+  NOTE_B3,
+  REST,
+  NOTE_B3,
+  REST,
+  NOTE_E3,
+  REST,
+  NOTE_GS3,
+  NOTE_A2,
+  NOTE_E3,
+  NOTE_A2,
+  NOTE_E3,
+  NOTE_A2,
+  REST,
+  NOTE_E2,
+  NOTE_E3,
+  NOTE_E2,
+  NOTE_E3,
+  NOTE_E2,
+  NOTE_E3,
+  NOTE_E2,
+  NOTE_E3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_GS2,
+  NOTE_GS3,
+  NOTE_GS2,
+  NOTE_GS3,
+  NOTE_E2,
+  NOTE_E3,
+  NOTE_E2,
+  NOTE_E3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_A2,
+  NOTE_A3,
+  NOTE_B2,
+  NOTE_C3,
+  NOTE_D3,
+  NOTE_D2,
+  REST,
+  NOTE_D2,
+  REST,
+  NOTE_D2,
+  NOTE_A2,
+  NOTE_F2,
+  NOTE_C2,
+  NOTE_C3,
+  REST,
+  NOTE_C3,
+  NOTE_C2,
+  NOTE_G2,
+  NOTE_G2,
+  REST,
+  NOTE_B2,
+  NOTE_B3,
+  REST,
+  NOTE_B3,
+  REST,
+  NOTE_E3,
+  REST,
+  NOTE_GS3,
+  NOTE_A2,
+  NOTE_E3,
+  NOTE_A2,
+  NOTE_E3,
+  NOTE_A2
 };
 int noteDurations_ch2[] = {
   214,
@@ -1511,22 +1521,27 @@ int noteDurations_ch2[] = {
 };
 int ch2index = 0;
 int ch2size = sizeof(noteDurations_ch2) / sizeof(noteDurations_ch2[0]);
-int last_ch2update_millis = 0;
-void ch2set_freq(int freq){
+uint32_t last_ch2update_millis = 0;
+void ch2set_freq(float freq){
     if(freq > 0) {  // Handle REST
-        OCR4A = CLOCK_FREQ/(freq*MUSIC_PRESCALER*2)-1;
+        OCR4A = (uint16_t)(CLOCK_FREQ/(freq*MUSIC_PRESCALER*2.0)-1);
     }
     else if(freq==0){
         OCR4A = 0; // No sound for REST
     }
 }
 void ch2advance(){
-    ch2set_freq(melody_ch2[ch2index]);  // Was calling ch1set_freq - BUG!
-    last_ch2update_millis = millis();
     ch2index++;
     if(ch2index>=ch2size){
         ch2index=0;
     }
+    // Defensive: double-check bounds
+    if(ch2index >= ch2size) {
+        Serial.println("ERROR: ch2index out of bounds!");
+        ch2index = 0;
+    }
+    ch2set_freq(melody_ch2[ch2index]);
+    last_ch2update_millis = millis();
 }
 
 byte ch2sad = 0;
@@ -1557,99 +1572,90 @@ void ch2sadvance(){
 
 void setup() {
     /*CHANNEL 1 SETUP ON TIMER 1*/
-    //WGM 2:0 To 010 so it's CTC mode (clear timer on compare)
-    TCCR1A |= 0b00000010;
-    TCCR1A &= 0b11111010;
-    
-    // Make sure we toggle 0C1A on match
-    TCCR1A |= 0b01000000;
-    TCCR1A &= 0b01111111;
-
-    // OC0A data direction out (cus OC1A is B5)
-    DDRB |= 1<<5;
-
-    // Prescale 8 for base notes
-    TCCR1B |= 0b00000010;
-    TCCR1B &= 0b00000101;
+    TCCR1A = 0b01000000; // Toggle OC1A on compare match
+    TCCR1B = 0b00001010; // CTC mode, prescale 8
+    DDRB |= 1<<5; // OC1A data direction out (cus OC1A is B5) (pin 11)
 
 
     /*CHANNEL 2 SETUP ON TIMER 3*/
-    //WGM 2:0 To 010 so it's CTC mode (clear timer on compare)
-    TCCR3A |= 0b00000010;
-    TCCR3A &= 0b11111010;
-    
-    // Make sure we toggle 0C3A on match
-    TCCR3A |= 0b01000000;
-    TCCR3A &= 0b01111111;
-
-    // OC0A data direction out (cus OC2A is B4)
-    DDRB |= 1<<4;
-
-    // Prescale 8 for base notes
-    TCCR3B |= 0b00000010;
-    TCCR3B &= 0b00000101;
-
+    TCCR3A = 0b01000000; // Toggle OC3A on compare match
+    TCCR3B = 0b00001010; // CTC mode, prescale 8
+    DDRE |= 1<<3; // OC3A data direction out (cus OC3A is E3) (pin 5)
 
 
     /*CHANNEL 3 SETUP ON TIMER 4*/
-    //WGM 2:0 To 010 so it's CTC mode (clear timer on compare)
-    TCCR4A |= 0b00000010;
-    TCCR4A &= 0b11111010;
-    
-    // Make sure we toggle 0C4A on match
-    TCCR4A |= 0b01000000;
-    TCCR4A &= 0b01111111;
-
-    // OC0A data direction out (cus OC4A is H3)
-    DDRH |= 1<<3;
-
-    // Prescale 8 for base notes
-    TCCR4B |= 0b00000010;
-    TCCR4B &= 0b00000101;
+    TCCR4A = 0b01000000; // Toggle OC4A on compare match
+    TCCR4B = 0b00001010; // CTC mode, prescale 8
+    DDRH |= 1<<3; // OC4A data direction out (cus OC1A is H3) (pin6)
 
     // Initialize with first notes
     ch0set_freq(melody_ch0[0]);
     ch1set_freq(melody_ch1[0]);
     ch2set_freq(melody_ch2[0]);
+
+    // Debug: Print track sizes
+    Serial.print("Track sizes - ch0:");
+    Serial.print(ch0size);
+    Serial.print(" ch1:");
+    Serial.print(ch1size);
+    Serial.print(" ch2:");
+    Serial.println(ch2size);
+
+    DDRE &= ~(1 << PINE5); // Set PINE5 as input for debugging
 }
 
-int index0, index1, index2;
-uint16_t stress_scaler;
-void update(bool player_dry, uint16_t stress_level) {
+float stress_scaler = 1.0;
+static unsigned long last_debug_print = 0;
+void update(bool player_dry, uint8_t stress_level) {
+    // Use fixed tempo for now - stress scaling can be added back later if needed
+    // stress_scaler = 0.5 + (stress_level+1)/256.0;
 
     if(player_dry){
-        stress_scaler = 0.5 + (stress_level+1)/256;
-        if(ch0index-1==-1){
-            index0 = ch0size - 1;
-        }
-        else{
-            index0 = ch0index - 1;
-        }
-        if(ch1index-1==-1){
-            index1 = ch1size - 1;
-        }
-        else{
-            index1 = ch1index - 1;
-        }
-        if(ch2index-1==-1){
-            index2 = ch2size - 1;
-        }
-        else{
-            index2 = ch2index - 1;
+
+        // Validate indices before accessing arrays
+        if(ch0index >= ch0size || ch1index >= ch1size || ch2index >= ch2size) {
+            Serial.print("CRITICAL: Index overflow! ch0=");
+            Serial.print(ch0index);
+            Serial.print(" ch1=");
+            Serial.print(ch1index);
+            Serial.print(" ch2=");
+            Serial.println(ch2index);
+            ch0index = 0;
+            ch1index = 0;
+            ch2index = 0;
         }
 
-        if(millis()-last_ch0update_millis>=noteDurations_ch0[index0]/stress_scaler){
+        // Check if it's time to advance to the next note (using CURRENT note duration)
+        if(millis()-last_ch0update_millis >= noteDurations_ch0[ch0index]/stress_scaler){
             ch0advance();
         }
-        if(millis()-last_ch1update_millis>=noteDurations_ch1[index1]/stress_scaler){
+        if(millis()-last_ch1update_millis >= noteDurations_ch1[ch1index]/stress_scaler){
             ch1advance();
         }
-        if(millis()-last_ch2update_millis>=noteDurations_ch2[index2]/stress_scaler){
+        if(millis()-last_ch2update_millis >= noteDurations_ch2[ch2index]/stress_scaler){
             ch2advance();
         }
+        
+        // Debug output every 3 seconds
+        if(millis() - last_debug_print > 3000) {
+            Serial.print("Indices: ch0=");
+            Serial.print(ch0index);
+            Serial.print("/");
+            Serial.print(ch0size);
+            Serial.print(" ch1=");
+            Serial.print(ch1index);
+            Serial.print("/");
+            Serial.print(ch1size);
+            Serial.print(" ch2=");
+            Serial.print(ch2index);
+            Serial.print("/");
+            Serial.println(ch2size);
+            last_debug_print = millis();
+        }
+        
     }
     else{
-
+        //Do the wah wah wah placeholder
     }
 }
 

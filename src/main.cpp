@@ -22,9 +22,13 @@ void setup() {
     init();
     sei();
     UBRR0 = 103; //9600 baud rate
+    Serial.begin(9600);
+    Serial.println("Setup starting...");
     LcdTetris::setup();
     MusicPlayer::setup();
+    Serial.println("Music initialized - channels on pins 11, 10, 6");
     WaterGun::setup();
+    Serial.println("Setup complete!");
 }
 
 void loop() {
