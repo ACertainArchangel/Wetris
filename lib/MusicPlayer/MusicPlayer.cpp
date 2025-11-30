@@ -372,10 +372,14 @@ int noteDurations_ch0[] = {
   429
 };
 int ch0index = 0;
-int ch0size = sizeof(noteDurations_ch0);
+int ch0size = sizeof(noteDurations_ch0) / sizeof(noteDurations_ch0[0]);
 int last_ch0update_millis = 0;
 void ch0set_freq(int freq){
-    OCR1A = CLOCK_FREQ/(freq*MUSIC_PRESCALER*2)-1;
+    if(freq > 0) {  // Handle REST
+        OCR1A = CLOCK_FREQ/(freq*MUSIC_PRESCALER*2)-1;
+    } else {
+        OCR1A = 0; // No sound for REST
+    }
 }
 void ch0advance(){
     ch0set_freq(melody_ch0[ch0index]);
@@ -411,6 +415,7 @@ void ch0sadvance(){
         ch0index=0;
     }
 }
+
 
 // Track 2, Channel 1, Timer 3
 float melody_ch1[] = {
@@ -843,11 +848,16 @@ int noteDurations_ch1[] = {
   429,
   429
 };
-int ch1index = 1;
-int ch1size = sizeof(noteDurations_ch1);
+int ch1index = 0;
+int ch1size = sizeof(noteDurations_ch1) / sizeof(noteDurations_ch1[0]);
 int last_ch1update_millis = 0;
 void ch1set_freq(int freq){
-    OCR3A = CLOCK_FREQ/(freq*MUSIC_PRESCALER*2)-1;
+    if(freq > 0) {  // Handle REST
+        OCR3A = CLOCK_FREQ/(freq*MUSIC_PRESCALER*2)-1;
+    }
+    else if(freq==0){
+        OCR3A = 0; // No sound for REST
+    }
 }
 void ch1advance(){
     ch1set_freq(melody_ch1[ch1index]);
@@ -1499,14 +1509,19 @@ int noteDurations_ch2[] = {
   214,
   429
 };
-int ch2index = 1;
-int ch2size = sizeof(noteDurations_ch2);
+int ch2index = 0;
+int ch2size = sizeof(noteDurations_ch2) / sizeof(noteDurations_ch2[0]);
 int last_ch2update_millis = 0;
 void ch2set_freq(int freq){
-    OCR4A = CLOCK_FREQ/(freq*MUSIC_PRESCALER*2)-1;
+    if(freq > 0) {  // Handle REST
+        OCR4A = CLOCK_FREQ/(freq*MUSIC_PRESCALER*2)-1;
+    }
+    else if(freq==0){
+        OCR4A = 0; // No sound for REST
+    }
 }
 void ch2advance(){
-    ch1set_freq(melody_ch2[ch2index]);
+    ch2set_freq(melody_ch2[ch2index]);  // Was calling ch1set_freq - BUG!
     last_ch2update_millis = millis();
     ch2index++;
     if(ch2index>=ch2size){
@@ -1592,7 +1607,10 @@ void setup() {
     TCCR4B |= 0b00000010;
     TCCR4B &= 0b00000101;
 
-
+    // Initialize with first notes
+    ch0set_freq(melody_ch0[0]);
+    ch1set_freq(melody_ch1[0]);
+    ch2set_freq(melody_ch2[0]);
 }
 
 int index0, index1, index2;

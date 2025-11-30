@@ -19,6 +19,8 @@ struct flags{
 };
 
 void setup() {
+    init();
+    sei();
     UBRR0 = 103; //9600 baud rate
     LcdTetris::setup();
     MusicPlayer::setup();
