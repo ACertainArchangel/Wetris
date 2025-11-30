@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #define CLOCK_FREQ 16000000
 #define MUSIC_PRESCALER 8 // Hard coded into the prescaler setting code, this is for referance elsewhere in code and not for dynamic prescaler setting.
+#define SADSIZE 5 // Number of notes in sad sequences so we don't have to dynamically calculate size and waste bytes since it's small.
 namespace MusicPlayer{
 
 struct Flags{
@@ -324,16 +325,18 @@ void ch0advance(){
 }
 
 int ch0sadnotes[] = {
-    NOTE_AS3,  // Bb3 - "wah"
-    NOTE_A3,   // A3  - "wah"
-    NOTE_GS3,  // Ab3 - "wah"
-    NOTE_G3,   // G3  - "waaah"
+    NOTE_AS4,  // Bb3 - "wah"
+    NOTE_A4,   // A3  - "wah"
+    NOTE_GS4,  // Ab3 - "wah"
+    NOTE_G4,   // G3  - "waaah"
+    REST
 };
-int ch0sad_durations[] = {
+unsigned int ch0sad_durations[] = {
     500,  // Half second
     500,  // Half second
     500,  // Half second
     1000, // Longer last note
+    6500,
 };
 void ch0makesad(){
     flags.ch0sad = 1;
@@ -342,7 +345,7 @@ void ch0makesad(){
 void ch0sadvance(){
     last_ch0update_millis += ch0sad_durations[ch0index];
     ch0index++;
-    if(ch0index>=4){  // sad array has 4 elements
+    if(ch0index>=SADSIZE){  // sad array has 4 elements
         ch0index=0;
         flags.ch0wrap = 1;
     }
@@ -708,16 +711,18 @@ void ch1advance(){
 }
 
 int ch1sadnotes[] = {
-    NOTE_F3,   // F3  - "wah" (harmony)
-    NOTE_E3,   // E3  - "wah"
-    NOTE_DS3,  // Eb3 - "wah"
-    NOTE_D3,   // D3  - "waaah"
+    NOTE_F4,   // F3  - "wah" (harmony)
+    NOTE_E4,   // E3  - "wah"
+    NOTE_DS4,  // Eb3 - "wah"
+    NOTE_D4,   // D3  - "waaah"
+    REST,
 };
-int ch1sad_durations[] = {
+unsigned int ch1sad_durations[] = {
     500,  // Half second
     500,  // Half second
     500,  // Half second
     1000, // Longer last note
+    6500, // Long rest
 };
 void ch1makesad(){
     flags.ch1sad = 1;
@@ -726,7 +731,7 @@ void ch1makesad(){
 void ch1sadvance(){
     last_ch1update_millis += ch1sad_durations[ch1index];
     ch1index++;
-    if(ch1index>=4){  // sad array has 4 elements
+    if(ch1index>=SADSIZE){  // sad array has 4 elements
         ch1index=0;
         flags.ch1wrap = 1;
     }
@@ -1250,16 +1255,18 @@ void ch2advance(){
 }
 
 int ch2sadnotes[] = {
-    NOTE_AS2,  // Bb2 - "wah" (bass)
-    NOTE_A2,   // A2  - "wah"
-    NOTE_GS2,  // Ab2 - "wah"
-    NOTE_G2,   // G2  - "waaah"
+    NOTE_AS3,  // Bb3 - "wah" (bass)
+    NOTE_A3,   // A2  - "wah"
+    NOTE_GS3,  // Ab2 - "wah"
+    NOTE_G3,   // G2  - "waaah"
+    REST,
 };
-int ch2sad_durations[] = {
+unsigned int ch2sad_durations[] = {
     500,  // Half second
     500,  // Half second
     500,  // Half second
     1000, // Longer last note
+    6500,
 };
 void ch2makesad(){
     flags.ch2sad = 1;
@@ -1268,7 +1275,7 @@ void ch2makesad(){
 void ch2sadvance(){
     last_ch2update_millis += ch2sad_durations[ch2index];
     ch2index++;
-    if(ch2index>=4){  // sad array has 4 elements
+    if(ch2index>=SADSIZE){  // sad array has 4 elements
         ch2index=0;
         flags.ch2wrap = 1;
     }
@@ -1340,7 +1347,40 @@ void update(bool player_dry, uint8_t stress_level) {
         
     }
     else{
-        //Do the wah wah wah placeholder
+        if(!(flags.ch0sad&&flags.ch1sad&&flags.ch2sad)){
+            ch0makesad();
+            ch1makesad();
+            ch2makesad();
+            last_ch0update_millis = millis();
+            last_ch1update_millis = millis();
+            last_ch2update_millis = millis();
+        }
+
+        if(!(flags.ch0wrap||flags.ch1wrap||flags.ch2wrap)){
+            // Check if it's time to advance to the next sad note (using CURRENT sad note duration)
+            if(millis()-last_ch0update_millis >= ch0sad_durations[ch0index]){
+                ch0sadvance();
+            }
+            if(millis()-last_ch1update_millis >= ch1sad_durations[ch1index]){
+                ch1sadvance();
+            }
+            if(millis()-last_ch2update_millis >= ch2sad_durations[ch2index]){
+                ch2sadvance();
+            }
+        }
+        else if(flags.ch0wrap&&flags.ch1wrap&&flags.ch2wrap){
+            flags.ch0wrap = 0;
+            flags.ch1wrap = 0;
+            flags.ch2wrap = 0;
+        }
+        else{
+            flags.ch0wrap = 0;
+            flags.ch1wrap = 0;
+            flags.ch2wrap = 0;
+            last_ch0update_millis = millis();
+            last_ch1update_millis = millis();
+            last_ch2update_millis = millis();
+        }
     }
 }
 
