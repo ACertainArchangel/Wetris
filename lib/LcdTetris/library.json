@@ -4,5 +4,12 @@
     "description": "Non-blocking LCD Tetris game logic",
     "authors": [
       { "name": "Roman Rosburg <I think that's your last name?>" }
-    ]
+    ],
+    "dependencies": [
+      { "name": "LCDWIKI_GUI" },
+      { "name": "LCDWIKI_SPI" }
+    ],
+    "build": {
+      "srcFilter": ["+<*>", "-<GameLogic/Classes.cpp.old>", "-<GameLogic/gameLogic.cpp.old>"]
+    }
 }

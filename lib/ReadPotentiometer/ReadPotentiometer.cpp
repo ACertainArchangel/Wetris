@@ -33,7 +33,10 @@ namespace ReadPotentiometer{
         *my_ADCSRA |= (1 << 6);
         while (*my_ADCSRA & (1 << 6));
         uint16_t value = *my_ADC_DATA & 0x03FF;
-        return value >> 2;
+        //return value >> 2;
+
+        //Dummy for test temporaty
+        return 127;
     }
 
 }

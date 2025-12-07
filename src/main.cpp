@@ -58,21 +58,20 @@ void loop() {
 
     if (loopflags.game_over && loopflags.finished_shooting){
         //Lock down and wait for reset while displaying thank you message and final score
-        while(1){
+        static bool displayed_loser = false;
+        if (!displayed_loser) {
             LcdTetris::thanks_looser();
-            MusicPlayer::update(false, stress_level);
+            displayed_loser = true;
         }
+        MusicPlayer::update(false, stress_level);
     }
     else if (loopflags.game_over && loopflags.winner){
-        while(1){
+        static bool displayed_winner = false;
+        if (!displayed_winner) {
             LcdTetris::thanks_winner();
-            MusicPlayer::update(true, stress_level);
+            displayed_winner = true;
         }
+        MusicPlayer::update(true, stress_level);
     }
 
 }
-
-
-uint8_t value = ReadPotentiometer::read();
-UARTLib::write(value);               // send raw value
-UARTLib::writeString("High\r\n");    // send a message
