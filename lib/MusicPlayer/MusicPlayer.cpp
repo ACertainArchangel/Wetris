@@ -341,6 +341,7 @@ unsigned int ch0sad_durations[] = {
 void ch0makesad(){
     flags.ch0sad = 1;
     ch0index = 0;
+    ch0set_freq(ch0sadnotes[0]);
 }
 void ch0sadvance(){
     last_ch0update_millis += ch0sad_durations[ch0index];
@@ -727,6 +728,7 @@ unsigned int ch1sad_durations[] = {
 void ch1makesad(){
     flags.ch1sad = 1;
     ch1index = 0;
+    ch1set_freq(ch1sadnotes[0]);
 }
 void ch1sadvance(){
     last_ch1update_millis += ch1sad_durations[ch1index];
@@ -1271,6 +1273,7 @@ unsigned int ch2sad_durations[] = {
 void ch2makesad(){
     flags.ch2sad = 1;
     ch2index = 0;
+    ch2set_freq(ch2sadnotes[0]);
 }
 void ch2sadvance(){
     last_ch2update_millis += ch2sad_durations[ch2index];

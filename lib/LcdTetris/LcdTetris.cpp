@@ -654,7 +654,7 @@ void gameOver() {
     mylcd.Set_Text_Mode(0);
     mylcd.Set_Text_colour(GREEN);
     mylcd.Set_Text_Size(2);
-    mylcd.Print_String("Your Safe", (width / 2) - 50, (height / 2));
+    mylcd.Print_String("You're Safe", (width / 2) - 50, (height / 2));
   }
   else {
     // wetris
