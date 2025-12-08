@@ -7,7 +7,7 @@
 #include <stdint.h>
 #include <ReadPotentiometer.h>
 
-#define SAFETY_THRESHOLD 1
+#define SAFETY_THRESHOLD 17
 #define MUSIC_SPEED 1.0
 
 uint8_t stress_level;
