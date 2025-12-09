@@ -13,6 +13,7 @@
 * Manual register manipulation fixes
 
 #### Gabe:
+* Fix up wiring on door lock actuator to look nicer
 * Final report framework
 * Schematic
 * About self on README.md and REPORT.tex
