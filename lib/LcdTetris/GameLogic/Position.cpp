@@ -1,6 +1,4 @@
 #include "Position.h"
-// Shouldn't need this
-//#include "Arduino.h"
 
 Position::Position() {
     row = 0;
