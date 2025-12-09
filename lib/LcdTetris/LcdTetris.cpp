@@ -135,7 +135,7 @@ namespace LcdTetris{
         pinMode(button1Pin, INPUT_PULLUP);
         pinMode(button2Pin, INPUT_PULLUP);
         pinMode(button3Pin, INPUT_PULLUP);
-        randomSeed(analogRead(1)); // seed random with noise from unconnected analog pin
+        randomSeed(analogRead(1)); // seed random with noise from unconnected analogue pin
         initBoard();
         initPiece();
         mylcd.Init_LCD();
