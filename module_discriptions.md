@@ -15,4 +15,6 @@ Connect pin 6  to one piezo buzzer through resistor and capacitor to ground
 
 ## Roman - LCD display Logic (Tetris)
 
-## Someone - Water Gun
+## Son and Gabe - Water Gun
+
+## Son - Potenteometer

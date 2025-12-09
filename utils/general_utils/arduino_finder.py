@@ -28,7 +28,7 @@ wordlist = [
     "AnalogWrite",
     #"millis",
     "delay",
-    "setup"
+    #"setup"
 ]
 
 excluded_dirs = ["LCDWIKI_GUI", "LCDWIKI_SPI", "LCDWIKI_TOUCH", ".pio", ".venv", ".git", "old"]
