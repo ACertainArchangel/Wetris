@@ -11,7 +11,50 @@
 
  namespace LcdTetris {
 
-    // GPIO 
+    /* Check 1 - Setting up flags + update on button pins 
+
+    // Buttons on PORTB:
+    //  D13 → PB7 → PCINT7  (button1)
+    //  D12 → PB6 → PCINT6  (button2)
+    //  D10 → PB4 → PCINT4  (button3)
+    constexpr uint8_t BTN1_BIT = PB7;
+    constexpr uint8_t BTN2_BIT = PB6;
+    constexpr uint8_t BTN3_BIT = PB4;
+
+    // Flags set by ISRs when a button is pressed (active low)
+    volatile bool btn1PressedFlag = false;
+    volatile bool btn2PressedFlag = false;
+    volatile bool btn3PressedFlag = false;
+
+    // Previous PORTB state, used to detect edges in PCINT ISR
+    volatile uint8_t portBPrev = 0xFF;
+
+    inline void buttonsInit() {
+        // --- Configure pins as INPUT_PULLUP ---
+
+        // Clear DDRB bits → inputs
+        DDRB &= ~(_BV(BTN1_BIT) | _BV(BTN2_BIT) | _BV(BTN3_BIT));
+
+        // Set PORTB bits → pull-ups enabled
+        PORTB |= _BV(BTN1_BIT) | _BV(BTN2_BIT) | _BV(BTN3_BIT);
+
+        // --- Pin Change Interrupts for PB4, PB6, PB7 (PCINT4,6,7) ---
+
+        // Save initial state
+        portBPrev = PINB;
+
+        // Enable pin change interrupt group 0 (PCINT0..7 → includes PORTB)
+        PCICR |= _BV(PCIE0);
+
+        // Enable PCINT7 (PB7, D13), PCINT6 (PB6, D12), PCINT4 (PB4, D10)
+        PCMSK0 |= _BV(PCINT7) | _BV(PCINT6) | _BV(PCINT4);
+    }
+
+   
+    */
+
+
+// GPIO 
     // Button pins:
     //  D13 → PB7
     //  D12 → PB6
@@ -72,6 +115,41 @@
 
         return ADC;   // 10-bit result (0–1023)
     }
+
+/*Check 2 - Interrupt for PORTB Group 
+
+ISR(PCINT0_vect) {
+        uint8_t current = PINB;
+        uint8_t mask    = _BV(BTN1_BIT) | _BV(BTN2_BIT) | _BV(BTN3_BIT);
+        uint8_t changed = (portBPrev ^ current) & mask;
+
+        // Button 1 (PB7, D13) - active low, trigger on transition to LOW
+        if (changed & _BV(BTN1_BIT)) {
+            if (!(current & _BV(BTN1_BIT))) {   // now low
+                btn1PressedFlag = true;
+            }
+        }
+
+        // Button 2 (PB6, D12) - active low
+        if (changed & _BV(BTN2_BIT)) {
+            if (!(current & _BV(BTN2_BIT))) {   // now low
+                btn2PressedFlag = true;
+            }
+        }
+
+        // Button 3 (PB4, D10) - active low
+        if (changed & _BV(BTN3_BIT)) {
+            if (!(current & _BV(BTN3_BIT))) {   // now low
+                btn3PressedFlag = true;
+            }
+        }
+
+        portBPrev = current;
+    }
+
+*/
+
+
 
     // Forward declarations
     void initBoard();
@@ -160,9 +238,17 @@
 
     /// For now using lib functions for ease of use
     //Input setup for buttons
+
+    /* Check 3 - Changed pins for buttons with what we have avalible (10,12,13)
+    const int button1Pin = 13;  // PB7 / PCINT7
+    const int button2Pin = 12;  // PB6 / PCINT6
+    const int button3Pin = 10;  // PB4 / PCINT4*/
+
     const int button1Pin = 13;
     const int button2Pin = 12;
     const int button3Pin = 4;
+
+   /* Check 4 - Dont need code lines 252-258, old button state globals*/
     int button1Val;
     int button2Val;
     int button3Val;
@@ -246,6 +332,16 @@ void setup() {
                 lastPiece = currentPiece;
             }
         }
+
+/* Check 5 - gameOver clean up 
+        else {
+    // Game over: blocks until left pressed, then reset
+    gameOver();
+    resetGame();
+}
+
+*/
+         
         else{
             // Game over
             gameOver();
@@ -310,6 +406,8 @@ void setup() {
     int get_score(){
         return score;
     }
+
+
 
 /// Helper methods
 void copyArray(Position* source, Position* destination, int len) {
@@ -456,7 +554,33 @@ bool pieceFits() {
   return true;
 
 }
+/* Check 6 - using flags instead of polling for processInputs  
 
+void processInputs() {
+  // Button 1 (left)
+  if (btn1PressedFlag) {
+    btn1PressedFlag = false;   
+    moveLeft();
+    UARTLib::writeString("B1 pressed (left)\n");
+  }
+
+  // Button 2 (right)
+  if (btn2PressedFlag) {
+    btn2PressedFlag = false;    
+    moveRight();
+    UARTLib::writeString("B2 pressed (right)\n");
+  }
+
+  // Button 3 (rotate)
+  if (btn3PressedFlag) {
+    btn3PressedFlag = false;  
+    rotatePieceCW();
+    UARTLib::writeString("B3 pressed\n");
+  }
+}
+
+
+*/
 void processInputs() {
   button1Val = readButton1();
   button2Val = readButton2();
@@ -758,7 +882,21 @@ void gameOver() {
     }
   }
 
-/*
+/* Check 7 - Interrupt flag - replacing the next commented code 
+
+ mylcd.Print_String("Press left to restart", (width / 2) - 150, (height / 2) + 50);
+
+  // Wait until ISR signals a press of button 1 (D13)
+  btn1PressedFlag = false;   // clear any previous press
+  while (!btn1PressedFlag) {
+      
+  }
+  btn1PressedFlag = false;  
+}
+*/ 
+ 
+ 
+ /*
 This part is unused since
   mylcd.Print_String("Press left to restart", (width / 2) - 150, (height / 2) + 50);
   while (button1Val == LOW) {
