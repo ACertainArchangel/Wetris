@@ -11,8 +11,6 @@
 
  namespace LcdTetris {
 
-    /* Check 1 - Setting up flags + update on button pins 
-
     // Buttons on PORTB:
     //  D13 → PB7 → PCINT7  (button1)
     //  D12 → PB6 → PCINT6  (button2)
@@ -50,45 +48,6 @@
         PCMSK0 |= _BV(PCINT7) | _BV(PCINT6) | _BV(PCINT4);
     }
 
-   
-    */
-
-
-// GPIO 
-    // Button pins:
-    //  D13 → PB7
-    //  D12 → PB6
-    //  D4  → PG5
-    constexpr uint8_t BTN1_BIT = PB7;  // button1Pin = 13
-    constexpr uint8_t BTN2_BIT = PB6;  // button2Pin = 12
-    constexpr uint8_t BTN3_BIT = PG5;  // button3Pin = 4
-
-    inline void buttonsInit() {
-        // Configure as INPUT_PULLUP:
-        // DDRx bit = 0 (input), PORTx bit = 1 (pull-up enabled)
-
-        // D13, D12 on PORTB
-        DDRB  &= ~(_BV(BTN1_BIT) | _BV(BTN2_BIT));   // inputs
-        PORTB |=  (_BV(BTN1_BIT) | _BV(BTN2_BIT));   // pull-ups on
-
-        // D4 on PORTG
-        DDRG  &= ~_BV(BTN3_BIT);                     // input
-        PORTG |=  _BV(BTN3_BIT);                     // pull-up on
-    }
-
-    inline int readButton1() {
-        // Return LOW/HIGH like digitalRead
-        return (PINB & _BV(BTN1_BIT)) ? HIGH : LOW;
-    }
-
-    inline int readButton2() {
-        return (PINB & _BV(BTN2_BIT)) ? HIGH : LOW;
-    }
-
-    inline int readButton3() {
-        return (PING & _BV(BTN3_BIT)) ? HIGH : LOW;
-    }
-
     // --- ADC helpers (for analog noise on A1 / ADC1) ---
 
     inline void adcInit() {
@@ -115,8 +74,6 @@
 
         return ADC;   // 10-bit result (0–1023)
     }
-
-/*Check 2 - Interrupt for PORTB Group 
 
 ISR(PCINT0_vect) {
         uint8_t current = PINB;
@@ -146,10 +103,6 @@ ISR(PCINT0_vect) {
 
         portBPrev = current;
     }
-
-*/
-
-
 
     // Forward declarations
     void initBoard();
@@ -239,23 +192,9 @@ ISR(PCINT0_vect) {
     /// For now using lib functions for ease of use
     //Input setup for buttons
 
-    /* Check 3 - Changed pins for buttons with what we have avalible (10,12,13)
     const int button1Pin = 13;  // PB7 / PCINT7
     const int button2Pin = 12;  // PB6 / PCINT6
-    const int button3Pin = 10;  // PB4 / PCINT4*/
-
-    const int button1Pin = 13;
-    const int button2Pin = 12;
-    const int button3Pin = 4;
-
-   /* Check 4 - Dont need code lines 252-258, old button state globals*/
-    int button1Val;
-    int button2Val;
-    int button3Val;
-
-    int button1LastVal = LOW;
-    int button2LastVal = LOW;
-    int button3LastVal = LOW;
+    const int button3Pin = 10;  // PB4 / PCINT4
 
     //paramters define
     #define MODEL ST7796S
@@ -287,6 +226,9 @@ void setup() {
 
 
     buttonsInit();
+    
+    // Enable global interrupts for pin change interrupts to work
+    sei();
 
     // Initialize ADC and seed RNG from A1 (ADC1)
     adcInit();
@@ -332,23 +274,10 @@ void setup() {
                 lastPiece = currentPiece;
             }
         }
-
-/* Check 5 - gameOver clean up 
         else {
-    // Game over: blocks until left pressed, then reset
-    gameOver();
-    resetGame();
-}
-
-*/
-         
-        else{
-            // Game over
+            // Game over: blocks until left pressed, then reset
             gameOver();
-            if (button1Val == LOW && button1LastVal == HIGH) {
-                // Reset game
-                resetGame();
-            }
+            resetGame();
         }
         return fail;
     }
@@ -554,7 +483,6 @@ bool pieceFits() {
   return true;
 
 }
-/* Check 6 - using flags instead of polling for processInputs  
 
 void processInputs() {
   // Button 1 (left)
@@ -577,33 +505,6 @@ void processInputs() {
     rotatePieceCW();
     UARTLib::writeString("B3 pressed\n");
   }
-}
-
-
-*/
-void processInputs() {
-  button1Val = readButton1();
-  button2Val = readButton2();
-  button3Val = readButton3();
-
-  // if (button1Val == LOW && button2Val == LOW && button1LastVal == HIGH && button2LastVal == HIGH) {
-  //   dropPiece();
-  // }
-  if (button1Val == LOW && button1LastVal == HIGH) {
-    moveLeft();
-    UARTLib::writeString("B1 pressed (left)\n");
-  }
-  if (button2Val == LOW && button2LastVal == HIGH) {
-    moveRight();
-    UARTLib::writeString("B2 pressed (right)\n");
-  }
-  if (button3Val == LOW && button3LastVal == HIGH) {
-    rotatePieceCW();
-    UARTLib::writeString("B3 pressed\n");
-  }
-  button1LastVal = button1Val;
-  button2LastVal = button2Val;
-  button3LastVal = button3Val;
 }
 
 /// Board Actions
@@ -882,9 +783,7 @@ void gameOver() {
     }
   }
 
-/* Check 7 - Interrupt flag - replacing the next commented code 
-
- mylcd.Print_String("Press left to restart", (width / 2) - 150, (height / 2) + 50);
+  mylcd.Print_String("Press left to restart", (width / 2) - 150, (height / 2) + 50);
 
   // Wait until ISR signals a press of button 1 (D13)
   btn1PressedFlag = false;   // clear any previous press
@@ -892,18 +791,6 @@ void gameOver() {
       
   }
   btn1PressedFlag = false;  
-}
-*/ 
- 
- 
- /*
-This part is unused since
-  mylcd.Print_String("Press left to restart", (width / 2) - 150, (height / 2) + 50);
-  while (button1Val == LOW) {
-    // just sits here until restart
-    button1Val = readButton1();
-  }
-*/
 }
 
 // To only be called when placePiece() is called
