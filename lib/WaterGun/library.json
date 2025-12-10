@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "A function to fire the solenoid water gun (non blocking so loser music can play too)",
     "authors": [
+        { "name": "Jorge Robles" },
         { "name": "Gabriel Jordaan" },
         { "name": "Dieufainson Jean" }
     ]
