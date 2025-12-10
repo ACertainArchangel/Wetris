@@ -145,8 +145,8 @@ INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
-OUTPUT REPORT.toc
 INPUT /usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+OUTPUT REPORT.toc
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
@@ -219,6 +219,11 @@ INPUT ./photos/Gabriel_Jordaan.jpg
 INPUT ./photos/Gabriel_Jordaan.jpg
 INPUT ./photos/Gabriel_Jordaan.jpg
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
+INPUT ./photos/wetris_logo.png
+INPUT ./photos/wetris_logo.png
+INPUT ./photos/wetris_logo.png
+INPUT ./photos/wetris_logo.png
+INPUT ./photos/wetris_logo.png
 INPUT REPORT.aux
 INPUT ./REPORT.out
 INPUT ./REPORT.out

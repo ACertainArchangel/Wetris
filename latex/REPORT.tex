@@ -117,7 +117,7 @@ More information can be found at: \\
 
 For this project we designed a series of peripherals to interface with the microcontroller in the Arduino Mega 2560 development board, and connected them in a 3d printed casing. The design is highly modular, with each peripheral being controlled by a library, and being handled from a high level main loop. See code and schematic for most in depth explaination. The peripherals are:
 \begin{itemize}
-\item The Tetris module, consisting of just an LCD, three buttons, and the software to run tetris game logic
+\item The Tetris module, consisting only of an LCD, three buttons, and the software to run tetris game logic
 \item The music module, with three buzzers playing the tetris theme song (Korobeiniki)
 \item The water gun module, which consists of a syringe, which is pushed by a spring powered plunger let back by a door lock actuator controlled by a relay module, which is in turn controlled by opto-couplers.
 \item The potentiometer module, which is used to adjust the speed of the music module and the Tetris module.
@@ -257,11 +257,11 @@ These images showcase the physical implementation of the Wetris system, includin
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{photos/intheface.jpeg}
-\caption{Player getting wet from the water gun actuator}
+\caption{Player getting wet from the water gun after losing the game}
 \label{fig:intheface}
 \end{figure}
 
-\section{Schematic Diagram}
+\section{Schematic Diagrams}
 
 Below is a schematic diagram illustrating the electrical connections and components used in the Wetris system.
 There is a high level diagram that shows how the peripherals are connected, and a more detailed schematic for each peripheral.
@@ -301,6 +301,27 @@ There is a high level diagram that shows how the peripherals are connected, and 
 \label{fig:schematic-potentiometer}
 \end{figure}
 
+\begin{figure}[H]
+\centering
+\fbox{\parbox{0.8\textwidth}{\centering\vspace{2in}Schematic Diagram Placeholder\vspace{2in}}}
+\caption{Solidworks technical drawing of 3D printed casing}
+\label{fig:schematic-casing-drawing}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox{0.8\textwidth}{\centering\vspace{2in}Schematic Diagram Placeholder\vspace{2in}}}
+\caption{Screenshot of Solidworks model of 3D printed casing from a roughly isometric angle}
+\label{fig:schematic-casing-solidworks}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox{0.8\textwidth}{\centering\vspace{2in}Schematic Diagram Placeholder\vspace{2in}}}
+\caption{Second screenshot from inside Solidworks from a different angle}
+\label{fig:schematic-casing-solidworks-2}
+\end{figure}
+
 \section{Links}
 
 \subsection{Repository}
@@ -313,6 +334,10 @@ Additional documentation and resources can be found in the project repository.
 \subsection{Demo Videos}
 Link to demo videos: \\
 \url{https://drive.google.com/drive/folders/1Q4Bg4BSVfFWwpvJh6P310yMYkDlfBsM4?usp=sharing}
+
+\subsubsection{3D Printing Files}
+Link to 3D printing files: \\
+\url{https://drive.google.com/drive/folders/11z260TUOtaoRf2S6610Rd5JktC3WCf8y?usp=sharing}
 
 \section{Our Team}
 
@@ -337,7 +362,7 @@ Link to demo videos: \\
     \vspace{0.3cm}
     \textbf{Role \& Contributions}:
     
-    Project manager, hardware developer, enclosure design and 3d printing, music module, main.cpp, python utilities, documentation, and final report.
+    Project manager, hardware developer, enclosure design with Solidworks and 3d printing, music module, main.cpp, python utilities, documentation, and final report.
     
     \vspace{0.3cm}
     \textbf{About Me}:
@@ -455,5 +480,16 @@ We would also like to acknowledge the open-source libraries that made this proje
 Thanks to Pastor David Minott for the idea of using a door lock actuator instead of a solenoid.\\
 
 Thanks to Nikolai Nekrasov for writing the original Korobeiniki song in 1861. (He's dead and can't sue us for copyright infringement right?)
+
+\clearpage
+
+\section{Wetris Logo}
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox{0.8\textwidth}{\centering\includegraphics[width=0.8\textwidth]{photos/wetris_logo.png}}}
+\caption{Wetris Logo}
+\label{fig:logo}
+\end{figure}
 
 \end{document}

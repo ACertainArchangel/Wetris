@@ -18,14 +18,16 @@
 \contentsline {subsection}{\numberline {4.2}Software Architecture}{8}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Power}{8}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Images}{9}{section.5}%
-\contentsline {section}{\numberline {6}Schematic Diagram}{16}{section.6}%
-\contentsline {section}{\numberline {7}Links}{19}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Repository}{19}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Documentation}{19}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Demo Videos}{19}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Our Team}{20}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Gabriel Jordaan}{20}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Team Member 2}{20}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Team Member 3}{21}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Team Member 4}{21}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Acknowledgments}{22}{subsection.8.5}%
+\contentsline {section}{\numberline {6}Schematic Diagrams}{16}{section.6}%
+\contentsline {section}{\numberline {7}Links}{21}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Repository}{21}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Documentation}{21}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Demo Videos}{21}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}3D Printing Files}{21}{subsubsection.7.3.1}%
+\contentsline {section}{\numberline {8}Our Team}{21}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Gabriel Jordaan}{21}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Team Member 2}{22}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Team Member 3}{22}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Team Member 4}{22}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Acknowledgments}{23}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Wetris Logo}{24}{section.9}%
