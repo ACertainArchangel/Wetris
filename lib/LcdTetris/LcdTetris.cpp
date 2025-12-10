@@ -723,7 +723,7 @@ void renderMisc() {
   // Score Render
   mylcd.Set_Text_colour(CYAN);
   mylcd.Set_Text_Size(2);
-  mylcd.Print_String(("Score:" + String(score) + "/" + String(SAFETY_THRESHOLD)).c_str(), 200, 104);
+  mylcd.Print_String(("Score:" + to_string(score) + "/" + to_string(SAFETY_THRESHOLD)).c_str(), 200, 104);
 
   // Next Piece text because I dont feel like rendering the next piece
   mylcd.Set_Text_colour(BLUE);
