@@ -24,10 +24,16 @@
 \contentsline {subsection}{\numberline {7.2}Documentation}{21}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Demo Videos}{21}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}3D Printing Files}{21}{subsection.7.4}%
-\contentsline {section}{\numberline {8}Our Team}{21}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Gabriel Jordaan}{21}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Team Member 2}{22}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Team Member 3}{22}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Team Member 4}{22}{subsection.8.4}%
-\contentsline {section}{\numberline {9}Acknowledgments}{23}{section.9}%
-\contentsline {section}{\numberline {10}Wetris Logo}{24}{section.10}%
+\contentsline {section}{\numberline {8}Environmental Impact as Detailed in CPE 301 Grading Rubric}{21}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Energy Efficiency}{21}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Design Safety}{21}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Affordability}{21}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Sustainability}{22}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Accessibility}{22}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Our Team}{22}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Gabriel Jordaan}{22}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Team Member 2}{23}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Team Member 3}{23}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Team Member 4}{23}{subsection.9.4}%
+\contentsline {section}{\numberline {10}Acknowledgments}{24}{section.10}%
+\contentsline {section}{\numberline {11}Wetris Logo}{25}{section.11}%
