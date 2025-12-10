@@ -24,7 +24,4 @@
 ## Bugs
 
 * Sand tetris
-* Score slashing at end
-* Interrupt crash (rare)
-* UART override
-* More speed
+* Crashes when serial monitor is opened

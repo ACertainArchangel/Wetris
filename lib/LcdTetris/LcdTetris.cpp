@@ -300,7 +300,7 @@ void setup() {
         mylcd.Set_Text_Size(2);
         mylcd.Print_String("You're Safe!", (width / 2) - 70, (height / 2) - 20);
         mylcd.Print_String("Final Score: ", (width / 2) - 80, (height / 2) + 10);
-        mylcd.Print_Number_Int(score, (width / 2) + 70, (height / 2) + 10, 0, ' ', 16);
+        mylcd.Print_Number_Int(score, (width / 2) + 70, (height / 2) + 10, 0, ' ', 10);
         mylcd.Print_String("Press reset to play again!", (width / 2) - 155, (height / 2) + 40);
     }
 
@@ -327,7 +327,7 @@ void setup() {
             break;
         }
         mylcd.Print_String("Final Score: ", (width / 2) - 80, (height / 2) + 40);
-        mylcd.Print_Number_Int(score, (width / 2) + 70, (height / 2) + 40, 0, ' ', 16);
+        mylcd.Print_Number_Int(score, (width / 2) + 70, (height / 2) + 40, 0, ' ', 10);
         mylcd.Print_String("To reset, turn off game,", (width / 2) - 150, (height / 2) + 70);
         mylcd.Print_String("manually reset actuator,", (width / 2) - 130, (height / 2) + 95);
         mylcd.Print_String("and refill syringe!", (width / 2) - 120, (height / 2) + 120);
