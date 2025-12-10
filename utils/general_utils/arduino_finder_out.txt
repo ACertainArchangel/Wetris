@@ -1,3 +1,1 @@
-Found 'Analog' in ./lib/LcdTetris/LcdTetris.cpp on line 49
-Found 'Digital' in ./lib/LcdTetris/LcdTetris.cpp on line 58
-Found 'DigitalRead' in ./lib/LcdTetris/LcdTetris.cpp on line 37
+All done!
