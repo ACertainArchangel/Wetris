@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  9 DEC 2025 21:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  9 DEC 2025 22:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -346,11 +346,16 @@ Overfull \hbox (22.50734pt too wide) in paragraph at lines 141--143
 []$\OT1/cmtt/m/n/12 https : / / drive . google . com / drive / folders / 1Q4Bg4BSVfFWwpvJh6P310yMYkDlfBsM4 ? usp =
  []
 
+<photos/Gabriel_Jordaan.jpg, id=146, 1210.5225pt x 1608.0075pt>
+File: photos/Gabriel_Jordaan.jpg Graphic file (type jpg)
+<use photos/Gabriel_Jordaan.jpg>
+Package pdftex.def Info: photos/Gabriel_Jordaan.jpg  used on input line 150.
+(pdftex.def)             Requested size: 85.35826pt x 113.38171pt.
 
 
 [6]
 
-[7]
+[7 <./photos/Gabriel_Jordaan.jpg>]
 
 [8]
 Underfull \hbox (badness 10000) in paragraph at lines 271--274
@@ -370,18 +375,18 @@ Package rerunfilecheck Info: File `REPORT.out' has not changed.
 (rerunfilecheck)             Checksum: FDC60D242F5B19102AF007FB919883EB;2759.
  ) 
 Here is how much of TeX's memory you used:
- 12239 strings out of 474662
- 238328 string characters out of 5751110
+ 12246 strings out of 474662
+ 238558 string characters out of 5751110
  616387 words of memory out of 5000000
- 35134 multiletter control sequences out of 15000+600000
+ 35141 multiletter control sequences out of 15000+600000
  565535 words of font info for 58 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  75i,8n,79p,993b,1039s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/gabrieljordaan/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on REPORT.pdf (9 pages, 100176 bytes).
+Output written on REPORT.pdf (9 pages, 2015463 bytes).
 PDF statistics:
- 215 PDF objects out of 1000 (max. 8388607)
+ 216 PDF objects out of 1000 (max. 8388607)
  187 compressed objects within 2 object streams
  37 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 182 words of extra memory for PDF output out of 10000 (max. 10000000)
 
