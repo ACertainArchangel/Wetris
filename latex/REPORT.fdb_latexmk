@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1765394461.53475 "/Users/gabrieljordaan/Desktop/Coding/Magnum opi/Wetris/Wetris-CPE-301-Final-Project/latex/REPORT.tex" "REPORT.pdf" "REPORT" 1765394461.99059 0
-  "/Users/gabrieljordaan/Desktop/Coding/Magnum opi/Wetris/Wetris-CPE-301-Final-Project/latex/REPORT.tex" 1765394460.79634 24937 bfc9c4330cddf867dd9ddd8a63266b7f ""
+["pdflatex"] 1765398294.7796 "/Users/gabrieljordaan/Desktop/Coding/Magnum opi/Wetris/Wetris-CPE-301-Final-Project/latex/REPORT.tex" "REPORT.pdf" "REPORT" 1765398296.31784 0
+  "/Users/gabrieljordaan/Desktop/Coding/Magnum opi/Wetris/Wetris-CPE-301-Final-Project/latex/REPORT.tex" 1765398293.01722 25226 32ae8da38200911734e11fd561eb8d9e ""
   "/Users/gabrieljordaan/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1095.600pk" 1765347208.80957 13556 96df97746222aa75a8b21cbd245e9d7d ""
   "/Users/gabrieljordaan/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk" 1764660136.6103 12644 fc174f309754f404f3fc20d7e852e751 ""
   "/Users/gabrieljordaan/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1765334176.32742 14040 6a5a9f925cc2f00ff1767644246ad3f6 ""
@@ -89,11 +89,12 @@
   "/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1763609305 79187 04b17f8738f833a5a5f7867124477b59 ""
   "/usr/local/texlive/2025basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1741448339 2663854 a6f6b8c904d47faabe5d94cfdac61310 ""
   "/usr/local/texlive/2025basic/texmf.cnf" 1741448314 628 81d1ada0f601fb1ffa62f1323192d946 ""
-  "REPORT.aux" 1765394461.96178 10897 9363f88d0384eb8da450d2e883126c2f "pdflatex"
-  "REPORT.out" 1765394461.96247 5489 9c271bd4cbb3460c3e5ae2ab63a11850 "pdflatex"
-  "REPORT.tex" 1765394460.79634 24937 bfc9c4330cddf867dd9ddd8a63266b7f ""
-  "REPORT.toc" 1765394461.96262 3166 628dc3f99cffcbbd447a51865149208e "pdflatex"
+  "REPORT.aux" 1765398296.2871 11467 e40c7f3ca6de072a069f168e61073772 "pdflatex"
+  "REPORT.out" 1765398296.28778 5489 9c271bd4cbb3460c3e5ae2ab63a11850 "pdflatex"
+  "REPORT.tex" 1765398293.01722 25226 32ae8da38200911734e11fd561eb8d9e ""
+  "REPORT.toc" 1765398296.28794 3166 24725c54d2854b9f43732e661253e546 "pdflatex"
   "photos/Block Clear.jpeg" 1765352982.94781 1140453 1ba98e21ed03c59980e44c3ef8900e1e ""
+  "photos/Casing2.0.pdf" 1765398203.04152 33527 06af16324c9ad54cfc8d05075f97bb59 ""
   "photos/Circuit.jpeg" 1765352982.18443 1616823 410ddc112dbe3d8062ee9d65f535d112 ""
   "photos/Gabriel_Jordaan.jpg" 1765352981.45342 167464 baa1ad0ef58d7073e3b9e4b8444019ab ""
   "photos/Moving and Rotating.jpeg" 1765352978.4572 909144 ca987eede719190f109f5629552ffd65 ""
@@ -104,6 +105,10 @@
   "photos/loss.jpeg" 1765352983.65891 1300409 8ce5ace1dd355ad876b8ec193b77f3ec ""
   "photos/point score.jpeg" 1765352977.71809 1000098 6f34fbca3b09881db12e889c5c0d9ad2 ""
   "photos/relay off.jpeg" 1765352975.30824 1222956 7b9b3eb87bdfada2a42cbf1034c9c0d8 ""
+  "photos/sld1.png" 1765396703.6034 2669124 6138ae9f804870492d416dca4e6ee970 ""
+  "photos/sld2.png" 1765396703.59861 2706567 2d71d9164e19eeb3f10e3bcd824382d0 ""
+  "photos/sld3.png" 1765396703.59357 2628262 ce621a0acb278a3b434168896f0077f1 ""
+  "photos/sld4.png" 1765396703.58889 2497528 3ce4b1d0577b70b8c51daf201ebb8c67 ""
   "photos/wetris_logo.png" 1765355473.90648 1080333 6538ff1cbbe4ece5c57c438eb973b16d ""
   "photos/win.jpeg" 1765352976.92099 1203927 521af65a150eb051b22b0c790ad1f05e ""
   (generated)

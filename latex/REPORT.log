@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  10 DEC 2025 11:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  10 DEC 2025 12:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -488,69 +488,99 @@ Package pdftex.def Info: photos/intheface.jpeg  used on input line 260.
 [17]
 
 [18]
+<photos/Casing2.0.pdf, id=328, 845.0471pt x 597.50829pt>
+File: photos/Casing2.0.pdf Graphic file (type pdf)
+<use photos/Casing2.0.pdf>
+Package pdftex.def Info: photos/Casing2.0.pdf  used on input line 307.
+(pdftex.def)             Requested size: 362.37569pt x 256.22153pt.
+<photos/sld1.png, id=329, 1517.67pt x 985.6825pt>
+File: photos/sld1.png Graphic file (type png)
+<use photos/sld1.png>
+Package pdftex.def Info: photos/sld1.png  used on input line 314.
+(pdftex.def)             Requested size: 362.37569pt x 235.35036pt.
 
-[19]
 
-[20]
-Overfull \hbox (22.50734pt too wide) in paragraph at lines 336--338
+[19 <./photos/Casing2.0.pdf>]
+<photos/sld2.png, id=355, 1517.67pt x 985.6825pt>
+File: photos/sld2.png Graphic file (type png)
+<use photos/sld2.png>
+Package pdftex.def Info: photos/sld2.png  used on input line 321.
+(pdftex.def)             Requested size: 362.37569pt x 235.35036pt.
+<photos/sld3.png, id=356, 1517.67pt x 985.6825pt>
+File: photos/sld3.png Graphic file (type png)
+<use photos/sld3.png>
+Package pdftex.def Info: photos/sld3.png  used on input line 328.
+(pdftex.def)             Requested size: 362.37569pt x 235.35036pt.
+
+
+[20 <./photos/sld1.png> <./photos/sld2.png>]
+<photos/sld4.png, id=365, 1517.67pt x 985.6825pt>
+File: photos/sld4.png Graphic file (type png)
+<use photos/sld4.png>
+Package pdftex.def Info: photos/sld4.png  used on input line 335.
+(pdftex.def)             Requested size: 362.37569pt x 235.35036pt.
+
+
+[21 <./photos/sld3.png> <./photos/sld4.png>]
+Overfull \hbox (22.50734pt too wide) in paragraph at lines 350--352
 []$\OT1/cmtt/m/n/12 https : / / drive . google . com / drive / folders / 1Q4Bg4BSVfFWwpvJh6P310yMYkDlfBsM4 ? usp =
  []
 
 
-Overfull \hbox (22.50734pt too wide) in paragraph at lines 340--342
+Overfull \hbox (22.50734pt too wide) in paragraph at lines 354--356
 []$\OT1/cmtt/m/n/12 https : / / drive . google . com / drive / folders / 11z260TUOtaoRf2S6610Rd5JktC3WCf8y ? usp =
  []
 
 
-Overfull \hbox (14.95775pt too wide) in paragraph at lines 343--343
+Overfull \hbox (14.95775pt too wide) in paragraph at lines 357--357
 []\OT1/cmr/bx/n/17.28 Environmental Im-pact as De-tailed in CPE 301 Grad-
  []
 
 
 
-[21]
-<photos/Gabriel_Jordaan.jpg, id=352, 1210.5225pt x 1608.0075pt>
+[22]
+<photos/Gabriel_Jordaan.jpg, id=385, 1210.5225pt x 1608.0075pt>
 File: photos/Gabriel_Jordaan.jpg Graphic file (type jpg)
 <use photos/Gabriel_Jordaan.jpg>
-Package pdftex.def Info: photos/Gabriel_Jordaan.jpg  used on input line 366.
+Package pdftex.def Info: photos/Gabriel_Jordaan.jpg  used on input line 380.
 (pdftex.def)             Requested size: 85.35826pt x 113.38171pt.
 
-Underfull \hbox (badness 1789) in paragraph at lines 383--384
+Underfull \hbox (badness 1789) in paragraph at lines 397--398
 []\OT1/cmr/m/n/12 Project man-ager, hard-ware de-vel-oper, en-clo-sure de-
  []
 
 
-Underfull \hbox (badness 1270) in paragraph at lines 419--420
+Underfull \hbox (badness 1270) in paragraph at lines 433--434
 []\OT1/cmr/m/n/12 Currently a Bach-e-lor's stu-dent at the Uni-ver-sity of
  []
 
 
 
-[22 <./photos/Gabriel_Jordaan.jpg>]
+[23 <./photos/Gabriel_Jordaan.jpg>]
 
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 490--493
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 499--500
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 504--507
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 513--514
 
-[24
+ []
 
-]
-<photos/wetris_logo.png, id=370, 1027.84pt x 1027.84pt>
-File: photos/wetris_logo.png Graphic file (type png)
-<use photos/wetris_logo.png>
-Package pdftex.def Info: photos/wetris_logo.png  used on input line 509.
-(pdftex.def)             Requested size: 362.37569pt x 362.38423pt.
 
 
 [25
+
+]
+<photos/wetris_logo.png, id=404, 1027.84pt x 1027.84pt>
+File: photos/wetris_logo.png Graphic file (type png)
+<use photos/wetris_logo.png>
+Package pdftex.def Info: photos/wetris_logo.png  used on input line 523.
+(pdftex.def)             Requested size: 362.37569pt x 362.38423pt.
+
+
+[26
 
  <./photos/wetris_logo.png (PNG copy)>] (./REPORT.aux)
  ***********
@@ -561,18 +591,18 @@ Package rerunfilecheck Info: File `REPORT.out' has not changed.
 (rerunfilecheck)             Checksum: 9C271BD4CBB3460C3E5AE2AB63A11850;5489.
  ) 
 Here is how much of TeX's memory you used:
- 12430 strings out of 474662
- 242290 string characters out of 5751110
- 621521 words of memory out of 5000000
- 35271 multiletter control sequences out of 15000+600000
+ 12470 strings out of 474662
+ 243211 string characters out of 5751110
+ 621671 words of memory out of 5000000
+ 35308 multiletter control sequences out of 15000+600000
  567445 words of font info for 64 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  75i,10n,79p,1024b,1050s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/gabrieljordaan/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </Users/gabrieljordaan/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1095.600pk> </Users/gabrieljordaan/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on REPORT.pdf (25 pages, 14008736 bytes).
+Output written on REPORT.pdf (26 pages, 22607461 bytes).
 PDF statistics:
- 452 PDF objects out of 1000 (max. 8388607)
- 385 compressed objects within 4 object streams
- 88 named destinations out of 1000 (max. 500000)
- 378 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 487 PDF objects out of 1000 (max. 8388607)
+ 403 compressed objects within 5 object streams
+ 91 named destinations out of 1000 (max. 500000)
+ 403 words of extra memory for PDF output out of 10000 (max. 10000000)
 

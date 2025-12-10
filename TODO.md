@@ -1,21 +1,22 @@
-### TODO LIST:
+# TODO LIST
 
-#### Roman:
+## Roman
+
 * Send your videos to me so I can put them in the google drive folder
 * About self on README.md and REPORT.tex
 * Photo for latex
 
+## Jorge
 
-#### Jorge:
 * Send your videos to me so I can put them in the google drive folder
 * About self on README.md and REPORT.tex
 * Photo for latex
 
-#### Gabe:
-* Add Schematic to Report
-* Add technical drawings to report
+## Gabe
+
+* Add Schematics to Report
 * Double check report and that we used all concepts.
 
+## Son
 
-#### Son:
 * Photo for latex
