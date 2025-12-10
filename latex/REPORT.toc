@@ -29,5 +29,5 @@
 \contentsline {subsection}{\numberline {8.2}Team Member 2}{22}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}Team Member 3}{22}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}Team Member 4}{22}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Acknowledgments}{23}{subsection.8.5}%
-\contentsline {section}{\numberline {9}Wetris Logo}{24}{section.9}%
+\contentsline {section}{\numberline {9}Acknowledgments}{23}{section.9}%
+\contentsline {section}{\numberline {10}Wetris Logo}{24}{section.10}%
