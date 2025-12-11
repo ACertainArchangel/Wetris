@@ -129,7 +129,6 @@ ISR(PCINT0_vect) {
     int gameBoard[25][10]; // standard 20x10 tetris board, extra 5 for holding pieces above board
     float tickRate = 0.1; // will be converted to mS later
     unsigned long timeSinceTick = 0;
-    volatile int currentCount = 0; // mS counter for timer/tick
     int currentPiece = 0; // 1 = line, 2 = J, 3 = L, 4 = block, 5 = S, 6 = T, 7 = Z
     int nextPiece = 0; // 1 = line, 2 = J, 3 = L, 4 = block, 5 = S, 6 = T, 7 = Z, to be spawned flat side facing down
     int score = 0;
@@ -191,10 +190,6 @@ ISR(PCINT0_vect) {
 
     /// For now using lib functions for ease of use
     //Input setup for buttons
-
-    const int button1Pin = 13;  // PB7 / PCINT7
-    const int button2Pin = 12;  // PB6 / PCINT6
-    const int button3Pin = 10;  // PB4 / PCINT4
 
     //paramters define
     #define MODEL ST7796S
@@ -523,17 +518,6 @@ void clearRow(int row) {
   for (int x = 0; x < 10; x++) {
     gameBoard[row][x] = 0;
   }
-}
-
-/// Scrapped for now in favor of potentiometer idea
-void dropPiece() {
-  offSetRow = 25;
-  while (!pieceFits()) {
-    UARTLib::writeString("stuck\n");
-    offSetRow--;
-  }
-  placePiece();
-  initPiece();
 }
 
 void moveBoardDown(int rowsCleared) {

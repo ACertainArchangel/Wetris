@@ -1,10 +1,6 @@
 #include "ReadPotentiometer.h"
 #include <Arduino.h>
 
-
-#define RDA 0x80
-#define TBE 0x20
-
 volatile unsigned char* my_ADMUX   = (unsigned char*) 0x7C;
 volatile unsigned char* my_ADCSRB  = (unsigned char*) 0x7B;
 volatile unsigned char* my_ADCSRA  = (unsigned char*) 0x7A;

@@ -11,29 +11,36 @@
 \contentsline {subsection}{\numberline {3.8}Optocouplers}{6}{subsection.3.8}%
 \contentsline {section}{\numberline {4}System Overview}{6}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Hardware Architecture}{6}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Tetris Module}{7}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Music Module}{7}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Water Gun Module}{7}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Potentiometer Module}{8}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.1}Microcontroller Resources Table}{6}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}LCD Tetris Module}{7}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Music Module}{7}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Water Gun Module}{7}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Potentiometer Module}{8}{subsubsection.4.1.5}%
 \contentsline {subsection}{\numberline {4.2}Software Architecture}{8}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Power}{8}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Images}{9}{section.5}%
 \contentsline {section}{\numberline {6}Schematic Diagrams}{16}{section.6}%
-\contentsline {section}{\numberline {7}Links}{21}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Repository}{21}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Documentation}{22}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Demo Videos}{22}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}3D Printing Files}{22}{subsection.7.4}%
-\contentsline {section}{\numberline {8}Environmental Impact as Detailed in CPE 301 Grading Rubric}{22}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Energy Efficiency}{22}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Design Safety}{22}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Affordability}{22}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Sustainability}{22}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Accessibility}{23}{subsection.8.5}%
-\contentsline {section}{\numberline {9}Our Team}{23}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Gabriel Jordaan}{23}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Dieufainson Jean}{24}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Jorge Robles}{24}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Roman Rosburg}{25}{subsection.9.4}%
-\contentsline {section}{\numberline {10}Acknowledgments}{26}{section.10}%
-\contentsline {section}{\numberline {11}Wetris Logo}{27}{section.11}%
+\contentsline {subsection}{\numberline {6.1}High Level System Schematic}{17}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Water Gun Module Schematic}{18}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Music Module Schematic}{19}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}LCD and Button Module Schematic}{20}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Potentiometer Module Schematic}{21}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}3D Casing Technical Drawings}{22}{subsection.6.6}%
+\contentsline {section}{\numberline {7}Links}{24}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Repository}{24}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Documentation}{24}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Demo Videos}{24}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}3D Printing Files}{24}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Environmental Impact as Detailed in CPE 301 Grading Rubric}{25}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Energy Efficiency}{25}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Design Safety}{25}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Affordability}{25}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Sustainability}{25}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Accessibility}{25}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Our Team}{26}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Gabriel Jordaan}{26}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Dieufainson Jean}{26}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Jorge Robles}{27}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Roman Rosburg}{27}{subsection.9.4}%
+\contentsline {section}{\numberline {10}Acknowledgments}{28}{section.10}%
+\contentsline {section}{\numberline {11}Wetris Logo}{29}{section.11}%

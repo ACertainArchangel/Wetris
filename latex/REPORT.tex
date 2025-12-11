@@ -25,12 +25,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 \newpage
 
 \section{Project Description}
-Wetris is a suspenseful and slightly nerve-racking spin-off of Tetris, the classic block-stacking game. The player races to clear enough lines to reach the target score before their stack reaches the top, and if they fail, they get splashed with water! To make it even better, the spring powered water gun is very loud and is a garenteed jump scare even if you know it's coming. It makes for a great party game, and would go well as an attraction in an arcade. The game also features a water gun override option that can be accessed by sending an 'x' to the microcontroller via UART so you can prank your friends who look like they are going to exceed the target score and are expecting to stay dry.
+Wetris is a suspenseful and slightly nerve-racking spin-off of Tetris, the classic block-stacking game. The player races to clear enough lines to reach the target score before their stack reaches the top, and if they fail, they get splashed with water! To make it even better, the spring-powered water gun is very loud and is a guaranteed jump scare even if you know it's coming. It makes for a great party game, and would go well as an attraction in an arcade. The game also features a water gun override option that can be accessed by sending an 'x' to the microcontroller via UART so you can prank your friends who look like they are going to exceed the target score and are expecting to stay dry.
 
 \section{Cost Analysis for this First Time Build}
 \label{sec:cost-analysis}
 
-This cost analysis includes tools that will not need to be repurchased for future builds, such as the multimeter and crimping tool. These tools were necessary for the successful completion of this first build, and their costs are included to provide a comprehensive overview of the initial investment required for the Wetris project. A production version of Wetris could be built for significantly less, since the tools are one time purchases, and many of the components were purchased in higher quantities than necessary and the cost for those components could be spread across multiple builds. The largest cost would still be the 3D printed casing, but even that could be reduced with bulk printing or alternative manufacturing methods such as injection molding. A cost analysis for a production version is not included here, but may later be developed if there is interest in pursuing that avenue.
+This cost analysis includes tools that will not need to be repurchased for future builds, such as the multimeter and crimping tool. These tools were necessary for the successful completion of this first build, and their costs are included to provide a comprehensive overview of the initial investment required for the Wetris project. A production version of Wetris could be built for significantly less, since the tools are one-time purchases, and many of the components were purchased in higher quantities than necessary and the cost for those components could be spread across multiple builds. The largest cost would still be the 3D printed casing, but even that could be reduced with bulk printing or alternative manufacturing methods such as injection molding. A cost analysis for a production version is not included here, but may later be developed if there is interest in pursuing that avenue.
 
 \begin{table}[H]
 \centering
@@ -58,7 +58,7 @@ Buzzers & \$6.49 & Amazon \\ \hline
 Sprinkler head & \$5.40 & ACE hardware \\ \hline
 Fuses & \$5.40 & Amazon \\ \hline
 Barrel jack splitter & \$4.30 & Amazon \\ \hline
-Misc. we on hand & \$0.00 & Jumper wires, buttons, tools, resistors, breadboard, 9V battery, USB cable, opto-couplers etc. \\ \hline
+Misc. we had on hand & \$0.00 & Jumper wires, buttons, tools, resistors, breadboard, 9V battery, USB cable, opto-couplers etc. \\ \hline
 Epoxy & \$0.00 & Took a little from another project of Gabe's \\ \hline
 \hline
 \multicolumn{1}{|r|}{\textbf{Grand Total:}} & \textbf{\$570.43} & \\ \hline
@@ -90,7 +90,7 @@ Connectivity: 14P 2.54mm header + FPC connector\\
 Additional: Micro SD slot, LED backlight (300 cd/m²) (Both unused in project)
 
 \subsection{Door Lock Actuator}
-The door lock actuator used is intended for a Dodge Grand Caravan, and operates on 12V DC and draws 2A. In order to reverse the direction of the actuator, the polarity of the voltage applied to it must be reversed. It is energy efficient, only drawing current when moving, and has a built-in limit switch to stop current flow when fully extended or retracted. Full specifications could not be found past what the amazon page provided. Pins had to be experementally probed to determine their propper function. Two pins still have unknown function and are left unconnected. They are possibly for feedback.
+The door lock actuator used is intended for a Dodge Grand Caravan, and operates on 12V DC and draws 2A. In order to reverse the direction of the actuator, the polarity of the voltage applied to it must be reversed. It is energy efficient, only drawing current when moving, and has a built-in limit switch to stop current flow when fully extended or retracted. Full specifications could not be found past what the amazon page provided. Pins had to be experimentally probed to determine their proper function. Two pins still have unknown function and are left unconnected. They are possibly for feedback.
 More information can be found at: \\
 \url{https://www.amazon.com/dp/B0C43BNSQM?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_3&th=1}
 
@@ -98,7 +98,7 @@ More information can be found at: \\
 Standard 3A automotive blade fuse used to protect the water gun actuator circuit from overcurrent conditions.
 
 \subsection{Potentiometer}
-Standard 10k ohm rotary potentiometer used to adjust game speed and music tempo.
+Standard 10k ohm rotary potentiometer used to adjust game speed.
 
 \subsection{Buzzers, Resistors, and Capacitors}
 Standard piezoelectric buzzers used for audio output, along with \qty{100}{\ohm} resistors and \qty{10}{\micro\farad} capacitors for signal conditioning and circuit protection.
@@ -109,54 +109,57 @@ More information can be found at: \\
 \url{https://www.amazon.com/Weasch-Forward-Pre-Wired-Actuator-Reversing/dp/B0FJQV4316?pd_rd_w=4c3sO&content-id=amzn1.sym.97c08ff8-4f39-4f9e-b360-8dbdbec34ee6&pf_rd_p=97c08ff8-4f39-4f9e-b360-8dbdbec34ee6&pf_rd_r=YHHMAAYABW9QQTN9YD5D&pd_rd_wg=pirQI&pd_rd_r=114b95df-9ba3-4874-ba37-76236030403c&pd_rd_i=B0FJQV4316&psc=1&ref_=pd_basp_d_rpt_ba_s_1_t}
 
 \subsection{Optocouplers}
-4N35 optocouplers with a foreward voltage of \qty{1.18}{\volt} and a maximum collector-emitter voltage of \qty{30}{\volt} used to isolate the high current 12V actuator control circuit from the low voltage 5V logic of the Arduino.
+4N35 optocouplers with a forward voltage of \qty{1.18}{\volt} and a maximum collector-emitter voltage of \qty{30}{\volt} used to isolate the high current 12V actuator control circuit from the low voltage 5V logic of the Arduino.
 More information can be found at: \\
 \url{https://www.alldatasheet.com/datasheet-pdf/view/98359/FAIRCHILD/4N35.html}
 
 
 \section{System Overview}
 
-For this project we designed a series of peripherals to interface with the microcontroller in the Arduino Mega 2560 development board, and connected them in a 3D printed casing. The design is highly modular, with each peripheral being controlled by a library, and being handled from a high level main loop. See code and schematic for most in depth explaination. The peripherals are:
+For this project we designed a series of peripherals to interface with the microcontroller in the Arduino Mega 2560 development board, and connected them in a 3D printed casing. The design is highly modular, with each peripheral being controlled by a library, and being handled from a high-level main loop. See code and schematics for most in-depth explanation. The peripherals are:
 \begin{itemize}
 \item The Tetris module, consisting only of an LCD, three buttons, and the software to run tetris game logic
 \item The music module, with three buzzers playing the tetris theme song (Korobeiniki)
-\item The water gun module, which consists of a syringe, which is pushed by a spring powered plunger let back by a door lock actuator controlled by a relay module, which is in turn controlled by opto-couplers.
-\item The potentiometer module, which is used to adjust the speed of the music module and the Tetris module.
+\item The water gun module, which consists of a syringe, which is pushed by a spring-powered plunger, let back by a door lock actuator controlled by a relay module, which is in turn controlled by opto-couplers.
+\item The potentiometer module, which is used to adjust the speed of the Tetris module. (Fuse protected.)
 \end{itemize}
 
 
 \subsection{Hardware Architecture}
-The following table outlines the microcontroller resources allocated to each component of the Wetris system, and details the connections used:
+
+\subsubsection{Microcontroller Resources Table}
+The following table outlines the microcontroller resources allocated to each component of the Wetris system, and details some of the connections used. Full schematic diagrams give all connection details and are included later in this document.
 
 \begin{table}[ht]
 \centering
 \begin{tabular}{|l|l|l|}
 \hline
 \textbf{Reserved Component} & \textbf{Name of User} & \textbf{Purpose} \\ \hline
-OC1A(pin11)+ Timer1 & Gabe & PWM signal for music \\ \hline
-OC3A(pin5) + Timer3 & Gabe & PWM signal for music \\ \hline
-OC4A(pin6) + Timer4 & Gabe & PWM signal for music \\ \hline
-Button 1(pin13) & Roman+Jorge+Gabe & Left Movement \\ \hline
-Button 2(pin12) & Roman+Jorge+Gabe & Right Movement \\ \hline
-Button 3(pin10) & Roman+Jorge+Gabe & Rotation Movement \\ \hline
-LCD(pins 7-9) & Roman & LCD connections \\ \hline
-LCD(Dig. Pins50-52) & Roman & LCD connections \\ \hline
-LCD LED(pin2) & Roman & Backlight control \\ \hline
+OC1A(pin11)+ Timer1 & Gabe & Square wave output for music \\ \hline
+OC3A(pin5) + Timer3 & Gabe & Square wave output for music \\ \hline
+OC4A(pin6) + Timer4 & Gabe & Square wave output for music \\ \hline
+PCINT7 (pin13) & Roman+Jorge+Gabe & Left Movement \\ \hline
+PCINT6 (pin12) & Roman+Jorge+Gabe & Right Movement \\ \hline
+PCINT4 (pin10) & Roman+Jorge+Gabe & Rotation Movement \\ \hline
+Pins for LCD (pins 7-9) & Roman & LCD connections \\ \hline
+Pins for LCD(Dig. Pins50-52) & Roman & LCD connections \\ \hline
+Pin for LCD LED (pin2) & Roman & Backlight control \\ \hline
 FWD Pin (22) & Son+Gabe+Jorge & Drive actuator forward \\ \hline
 REV Pin (23) & Son+Gabe+Jorge & Drive actuator reverse \\ \hline
+A0 (pin A0) & Son & Potentiometer for game speed adjustment \\ \hline
 \end{tabular}
 \caption{Hardware resource allocation for Wetris system}
 \label{tab:hardware}
 \end{table}
 
-\subsubsection{Tetris Module}
-In order to reach the back of the casing where the MCU is mounted from the LCD and buttons in the front of the casing, we used 16 AWG wire to connect the buttons and dupont wires linked end to end to connect the LCD. The LCD pin connections in detail are as follows:
+\subsubsection{LCD Tetris Module}
+In order to reach the back of the casing where the MCU is mounted from the LCD and buttons in the front of the casing, we used 16 AWG wire to connect the buttons, and we used Dupont wires linked end to end to connect the LCD. The LCD and button connections in detail are as follows:
 \begin{itemize}
     \item Pin 2  $\rightarrow$ LED pin on the LCD
-    \item Pin 4  $\rightarrow$ Rotate Piece Button
+    \item Pin 7 $\rightarrow$ CS pin on LCD
     \item Pin 8  $\rightarrow$ RESET pin on LCD
     \item Pin 9  $\rightarrow$ CD pin on LCD
-    \item Pin 10 $\rightarrow$ CS pin on LCD
+    \item Pin 10  $\rightarrow$ Rotate Piece Button
     \item Pin 12 $\rightarrow$ Right Button
     \item Pin 13 $\rightarrow$ Left Button
     \item Pin 50 $\rightarrow$ SDO
@@ -165,13 +168,13 @@ In order to reach the back of the casing where the MCU is mounted from the LCD a
 \end{itemize}
 
 \subsubsection{Music Module}
-The music module uses output compare pins OC1A (pin 11), OC3A (pin 5), and OC4A (pin 6) to output PWM signals to three separate piezo buzzers. Each buzzer is connected in series with a 100 ohm resistor to limit current and a \qty{10}{\micro\farad} capacitor to smooth the signal. The code directly loads frequency and duration values into memory and iterates through them to play the song. This method is highly memory intensive, but allows for accurate timing and frequency control. The music was converted from midi format to c style arrays using a custom python script found in the repository.
+The music module uses output compare pins OC1A (pin 11), OC3A (pin 5), and OC4A (pin 6) in CTC (Clear Timer on Compare) mode to generate square wave signals at specific frequencies for three separate piezo buzzers. Each buzzer is connected in series with a 100 ohm resistor to limit current and a \qty{10}{\micro\farad} capacitor to smooth the signal. The code directly loads frequency and duration values into memory and iterates through them to play the song. This method is highly memory intensive, but allows for accurate timing and frequency control. The music was converted from midi format to c style arrays using a custom python script found in the repository.
 
 \subsubsection{Water Gun Module}
-In order to isolate the high current 12V power supply used to drive the water gun actuator from the 5V logic of the Arduino, we used a relay module controlled by opto-couplers. The relay module is powered by the 12V supply, and the opto-couplers are powered by the 5V supply from the Arduino. The opto-couplers are connected to digital pins 22 and 23 on the Arduino, which control the forward and reverse movement of the actuator respectively. When the game is over and the safety threshold has not been reached, the Arduino activates the relay in reverse to trigger the water gun mechanism. The foreward function is not used in normal operation, but is included for completeness. Very importantly, an inline fuse is included in the 12V power line to protect against short circuits.
+In order to isolate the high current 12V power supply used to drive the water gun actuator from the 5V logic of the Arduino, we used a relay module controlled by opto-couplers. The relay module is powered by the 12V supply, and the opto-couplers are powered by the 5V supply from the Arduino. The opto-couplers are connected to digital pins 22 and 23 on the Arduino, which control the forward and reverse movement of the actuator respectively. When the game is over and the safety threshold has not been reached, the Arduino activates the relay in reverse to trigger the water gun mechanism. The forward function is not used in normal operation, but is included for completeness. Very importantly, an inline fuse is included in the 12V power line to protect against short circuits.
 
 \subsubsection{Potentiometer Module}
-The potentiometer is our most simple peripheral, being connected to the 5V and GND pins on the Arduino, with the wiper connected to analog pin A0. The potentiometer is used to adjust the speed of the game and music modules, allowing the player to customize their experience. Also allowing their friends to set it to an impossible speed in the middle of a game for extra fun.
+The potentiometer is our most simple peripheral, being connected to the 5V and GND pins on the Arduino, with the wiper connected to analog pin A0. The potentiometer is used to adjust the speed of the game, allowing the player to customize their experience. Also allowing their friends to set it to an impossible speed in the middle of a game for extra fun.
 
 \subsection{Software Architecture}
 The software is structured in a modular fashion, with each peripheral being handled by its own library. The main loop coordinates the interactions between the different modules, ensuring smooth gameplay and timely responses to user inputs. All modules had to be engineered to be non-blocking and work together. This presented a difficult engineering challenge that had to be overcome with many optimisations and plan-B methodologies. For example, the LCD tetris module had to render only when the game state changed, otherwise the music module would stutter as the updates took too much time. Clearing the screen with the LCD library took too long, so we had to implement our own function to only update the parts of the screen that changed, and now we only use the clearing function when absolutely necessary, such as at the start of the game or when a row is cleared.
@@ -237,7 +240,7 @@ These images showcase the physical implementation of the Wetris system, includin
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{photos/You Needed A Wash.jpeg}
-\caption{Game over screen with debug statements shown on serial monitor}
+\caption{Game over screen with state information shown on serial monitor}
 \label{fig:wash}
 \end{figure}
 
@@ -267,40 +270,52 @@ These images showcase the physical implementation of the Wetris system, includin
 Below is a schematic diagram illustrating the electrical connections and components used in the Wetris system.
 There is a high level diagram that shows how the peripherals are connected, and a more detailed schematic for each peripheral.
 
+\subsection{High Level System Schematic}
+
 \begin{figure}[H]
 \centering
-\fbox{\parbox{0.8\textwidth}{\centering\vspace{2in}Schematic Diagram Placeholder\vspace{2in}}}
+\includegraphics[width=0.8\textwidth]{photos/High_Level_Schematic.pdf}
 \caption{High level electrical schematic of Wetris system}
 \label{fig:schematic-high-level}
 \end{figure}
 
+\subsection{Water Gun Module Schematic}
+
 \begin{figure}[H]
 \centering
-\fbox{\parbox{0.8\textwidth}{\centering\vspace{2in}Schematic Diagram Placeholder\vspace{2in}}}
+\includegraphics[width=0.8\textwidth]{photos/Water_Gun_Schematic.pdf}
 \caption{Electrical schematic of water gun module}
 \label{fig:schematic-water-gun}
 \end{figure}
 
+\subsection{Music Module Schematic}
+
 \begin{figure}[H]
 \centering
-\fbox{\parbox{0.8\textwidth}{\centering\vspace{2in}Schematic Diagram Placeholder\vspace{2in}}}
+\includegraphics[width=0.8\textwidth]{photos/Music_Schematic.pdf}
 \caption{Electrical schematic of music module}
 \label{fig:schematic-music}
 \end{figure}
 
+\subsection{LCD and Button Module Schematic}
+
 \begin{figure}[H]
 \centering
-\fbox{\parbox{0.8\textwidth}{\centering\vspace{2in}Schematic Diagram Placeholder\vspace{2in}}}
+\includegraphics[width=0.8\textwidth]{photos/LCDTetris_Schematic.pdf}
 \caption{Electrical schematic of LCD and button module}
 \label{fig:schematic-lcd-buttons}
 \end{figure}
 
+\subsection{Potentiometer Module Schematic}
+
 \begin{figure}[H]
 \centering
-\fbox{\parbox{0.8\textwidth}{\centering\vspace{2in}Schematic Diagram Placeholder\vspace{2in}}}
+\includegraphics[width=0.8\textwidth]{photos/Potenteometer_Schematic.pdf}
 \caption{Electrical schematic of potentiometer module}
 \label{fig:schematic-potentiometer}
 \end{figure}
+
+\subsection{3D Casing Technical Drawings}
 
 \begin{figure}[H]
 \centering
@@ -399,7 +414,7 @@ Wetris is designed to be accessible to a wide range of users by providing simple
     \vspace{0.3cm}
     \textbf{About Me}:
     
-    I am an electrical engineering student in the dual enrollment program at UNR, and as of fall 2025 I am 17 years old. I plan to graduate with my bachelors degree in 2027 and move on to a masters and PhD in robotics. Embedded systems and machine learning are my main interests in terms of engineering. I enjoy hiking, cooking, studying the bible, playing the cello, and working with my hands. I speak Afrikaans, English, and really awful Spanish. I have also started trying to learn Russian.
+    I am an electrical engineering student in the dual enrollment program at UNR, and as of fall 2025 I am 17 years old. I plan to graduate with my bachelor's degree in 2027 and move on to a master's and PhD in robotics. Embedded systems and machine learning are my main interests in terms of engineering. I enjoy hiking, cooking, studying the Bible, playing the cello, and working with my hands. I speak Afrikaans, English, and really awful Spanish. I have also started trying to learn Russian and am minoring in entrepreneurship.
 \end{minipage}
 
 \vspace{0.5cm}
@@ -456,7 +471,7 @@ Wetris is designed to be accessible to a wide range of users by providing simple
     \vspace{0.3cm}
     \textbf{Role \& Contributions}:
     
-    Used GPIO methods to write code that did not implement any fuctions such as digitalWrite, digitalRead etc. Also added the interrupts, ISR, for the hardware buttons instead of polling. New water gun actuator control software.
+    Used GPIO methods to write code that did not implement any functions such as digitalWrite, digitalRead etc. Also added the interrupts, ISR, for the hardware buttons instead of polling. New water gun actuator control software.
     
     \vspace{0.3cm}
     \textbf{About Me}:

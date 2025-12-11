@@ -1,11 +1,9 @@
 #include "WaterGun.h"
 #include <Arduino.h>  
 
-namespace WaterGun {
+// Uses pin 22 and 23 (PA0 and PA1) for the water gun
 
-    // Arduino pin numbers 
-    const int FWD_PIN  = 22;  // PA0
-    const int BACK_PIN = 23;  // PA1
+namespace WaterGun {
 
     // Bit positions on PORTA
     constexpr uint8_t FWD_BIT  = PA0;  // bit 0
