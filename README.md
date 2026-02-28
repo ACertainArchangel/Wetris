@@ -50,7 +50,7 @@ More detailed, step-by-step assembly manual file coming soon.
 | Wire (16 AWG) | ACE Hardware | $8.66 |
 | Inline fuse holder + 3A automotive fuses | ACE Hardware | $12.53 |
 | Piezo buzzers (x3) | Amazon | $6.49 |
-| Sprinkler head | ACE Hardware | $5.40 |
+| Sprinkler head (K-Rain Pro-S 4-inch Pop-Up Sprinkler Head, 0-360° Adjustable) | ACE Hardware | $5.40 |
 | Barrel jack splitter | Amazon | $4.30 |
 | Misc. (jumper wires, buttons, resistors, breadboard, optocouplers, USB cable, 9V battery) | On hand | $0.00 |
 | Epoxy | On hand | $0.00 |
